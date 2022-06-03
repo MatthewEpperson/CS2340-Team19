@@ -10,6 +10,9 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 
+# Force include scene Hierarchy
+!/[Ll]ibrary/LastSceneManagerSetup.txt
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 # GamesSuite/[Aa]ssets/**/*.meta
 
