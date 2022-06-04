@@ -9,4 +9,16 @@ public class StartMenu : MonoBehaviour
         Debug.Log("QUIT!");
         Application.Quit();
     }
+
+    public void Credits() {
+        Debug.Log("credits");
+    }
+
+    public void Settings() {
+        Debug.Log("settings");
+    }
+
+    public void Games() {
+        Debug.Log("games");
+    }
 }
