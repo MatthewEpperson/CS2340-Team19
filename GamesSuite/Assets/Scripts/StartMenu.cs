@@ -48,4 +48,8 @@ public class StartMenu : MonoBehaviour
         }
         currGame.text = gamesList[gamesListIndex];
     }
+
+    public void playGame() {
+        SceneManager.LoadScene(gamesList[gamesListIndex]);
+    }
 }
