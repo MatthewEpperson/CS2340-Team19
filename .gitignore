@@ -62,7 +62,7 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Misc Stuff
-/UserSettings/
+[Uu]serSettings/
 .vsconfig
 .DS_Store
 .vscode
