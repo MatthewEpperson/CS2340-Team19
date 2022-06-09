@@ -10,8 +10,11 @@
 [Ll]ogs/
 [Mm]emoryCaptures/
 
+# Force include scene Hierarchy
+!/[Ll]ibrary/LastSceneManagerSetup.txt
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
-!/[Aa]ssets/**/*.meta
+# GamesSuite/[Aa]ssets/**/*.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
@@ -61,3 +64,4 @@ crashlytics-build.properties
 # Misc Stuff
 /UserSettings/
 .vsconfig
+.DS_Store
