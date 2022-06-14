@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class GenerateWord
 {
-    private static string[] words = System.IO.File.ReadAllLines("Assets/Scripts/words.csv");
+    private static string[] words = System.IO.File.ReadAllLines("Assets/Scripts/words.csv"); // Parses words.csv into an array
 
-    // Retrieves word from word list
+    // Retrieves random word from words
     public static string getWord() {
         int randomInd = Random.Range(0, words.Length);
         return words[randomInd];
