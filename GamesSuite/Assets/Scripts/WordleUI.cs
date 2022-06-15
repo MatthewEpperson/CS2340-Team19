@@ -6,19 +6,16 @@ using UnityEngine.UI;
 public class WordleUI : MonoBehaviour
 {
     public GameObject letterBlock; // 
-    private Transform background;
+    private Transform blocksPanel;
     private List<List<GameObject>> letterBlocksList;
     private WordlePlayer wordlePlayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        background = GameObject.Find("Background").GetComponent<Transform>();
+        blocksPanel = GameObject.Find("BlocksPanel").GetComponent<Transform>();
         letterBlocksList = new List<List<GameObject>>();
         wordlePlayer = GameObject.Find("Main Camera").GetComponent<WordlePlayer>();
-        
-        int block_x = 400;
-        int block_y = 525;
 
         /* The inner loop create the 5 blocks horizontally for the words.
             We want 6 rows so we do it 6 times with the outer loop. 
@@ -26,14 +23,9 @@ public class WordleUI : MonoBehaviour
         for (int j = 0; j < 6; j++) {
             letterBlocksList.Add(new List<GameObject>());
             for (int i = 0; i < 5; i++) {
-                if (i % 5 == 0) {
-                    block_y -= 65;
-                    block_x = 400;
-                }
-                GameObject gameObj = Instantiate(letterBlock, new Vector3(block_x, block_y, 0), Quaternion.identity);
-                gameObj.transform.SetParent(background);
+                GameObject gameObj = Instantiate(letterBlock, new Vector3(0,0,0), 
+                                            Quaternion.identity, blocksPanel);
                 letterBlocksList[j].Add(gameObj);
-                block_x += 55;
             }
         }
     }
