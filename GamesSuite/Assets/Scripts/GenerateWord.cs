@@ -10,7 +10,8 @@ public class GenerateWord
     // Retrieves random word from words
     public static string getWord() {
         int randomInd = Random.Range(0, words.Length);
-        return words[randomInd];
+        return "decos";
+        // return words[randomInd];
     }
 
     // Checks if the word guessed by player is a possible choice
