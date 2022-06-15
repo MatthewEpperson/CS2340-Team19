@@ -10,6 +10,8 @@ public class WordlePlayer : MonoBehaviour
 
     public string playerInputWord; // String to keep track of what player types from input field
     public string correctWord;
+
+    [SerializeField]
     public int attempts; // keeps track of attempts the player has used
 
     private WordleUI wordleUI; 
@@ -31,7 +33,6 @@ public class WordlePlayer : MonoBehaviour
 
         wordleUI = GameObject.Find("Background").GetComponent<WordleUI>();
 
-        attempts = 0;
         wordInputField = GameObject.Find("PlayerWordGuess").GetComponent<TMP_InputField>();
         wordInputField.ActivateInputField();
         Debug.Log(correctWord);
@@ -51,7 +52,7 @@ public class WordlePlayer : MonoBehaviour
         if (Input.GetKeyDown("return") && isValidWord()) {
             wordleUI.changeBlockColor();
             wordInputField.text = "";
-            attempts++;
+            attempts--;
         }
     }
 

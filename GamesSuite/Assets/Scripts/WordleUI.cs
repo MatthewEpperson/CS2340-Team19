@@ -20,7 +20,7 @@ public class WordleUI : MonoBehaviour
         /* The inner loop create the 5 blocks horizontally for the words.
             We want 6 rows so we do it 6 times with the outer loop. 
         */
-        for (int j = 0; j < 6; j++) {
+        for (int j = 0; j < wordlePlayer.attempts; j++) {
             letterBlocksList.Add(new List<GameObject>());
             for (int i = 0; i < 5; i++) {
                 GameObject gameObj = Instantiate(letterBlock, new Vector3(0,0,0), 
@@ -30,12 +30,15 @@ public class WordleUI : MonoBehaviour
         }
     }
 
+
+    private int blockRow = 0; // Used to keep track of which row of blocks for indexing letterBlocksList
+
     public void changeBlockColor() {
         string playerInputWord = wordlePlayer.getWord();
         string correctWord = wordlePlayer.correctWord;
         int attempts = wordlePlayer.attempts;
 
-        if (attempts >= 6) {
+        if (attempts <= 0) {
             return;
         }
 
@@ -43,19 +46,21 @@ public class WordleUI : MonoBehaviour
         Color32 green = new Color32(0, 255, 0, 255);
         Color32 gray = new Color32(75, 75, 75, 255);
 
-        Debug.Log(playerInputWord);
+
         for (int i = 0; i < playerInputWord.Length; i++) {
             char currLetter = correctWord[i]; // current letter of the correct word to compare it to the player's guess
             if (currLetter == playerInputWord[i]) { // if player's letter is in correct position
-                letterBlocksList[attempts][i].GetComponent<Image>().color = green;
+                letterBlocksList[blockRow][i].GetComponent<Image>().color = green;
                 continue;
             }
             if (currLetter != playerInputWord[i] && correctWord.Contains(playerInputWord[i])) { // if player's letter is in correct word but wrong position
-                letterBlocksList[attempts][i].GetComponent<Image>().color = yellow;
+                letterBlocksList[blockRow][i].GetComponent<Image>().color = yellow;
                 continue;
             }
-            letterBlocksList[attempts][i].GetComponent<Image>().color = gray;
+            letterBlocksList[blockRow][i].GetComponent<Image>().color = gray;
         }
+
+        blockRow++;
     }
 
 }

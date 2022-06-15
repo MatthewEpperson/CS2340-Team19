@@ -729,7 +729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInputWord: 
   correctWord: 
-  attempts: 0
+  attempts: 6
   corrWord: {fileID: 0}
 --- !u!1 &1857482987
 GameObject:
