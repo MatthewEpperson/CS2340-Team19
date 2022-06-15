@@ -15,7 +15,7 @@ public class WordleUI : MonoBehaviour
     {
         blocksPanel = GameObject.Find("BlocksPanel").GetComponent<Transform>();
         letterBlocksList = new List<List<GameObject>>();
-        wordlePlayer = GameObject.Find("Main Camera").GetComponent<WordlePlayer>();
+        wordlePlayer = GameObject.Find("Player").GetComponent<WordlePlayer>();
 
         /* The inner loop create the 5 blocks horizontally for the words.
             We want 6 rows so we do it 6 times with the outer loop. 
