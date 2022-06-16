@@ -9,6 +9,7 @@ public class WordlePlayer : MonoBehaviour
 {
 
     public string playerInputWord; // String to keep track of what player types from input field
+    private string[] words = System.IO.File.ReadAllLines("Assets/Scripts/words.csv"); // Parses words.csv into an array
     public string correctWord;
 
     [SerializeField]
@@ -24,7 +25,7 @@ public class WordlePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        correctWord = GenerateWord.getWord(); // pulls a random word from words.csv and assigns it
+        correctWord = generateWord(); // pulls a random word from words.csv and assigns it
 
         // NOTE 1: Displays correct word on screen just so we can test when playing. Remove this later.
         corrWord = GameObject.Find("CorrectWord").GetComponent<TMP_Text>();
@@ -35,7 +36,16 @@ public class WordlePlayer : MonoBehaviour
 
         wordInputField = GameObject.Find("PlayerWordGuess").GetComponent<TMP_InputField>();
         wordInputField.ActivateInputField();
-        Debug.Log(correctWord);
+    }
+
+        // This is a default unity function. Whatever is in this function gets executed every single frame.
+    void Update() {
+        wordInputField.ActivateInputField();
+        if (Input.GetKeyDown("return") && isValidWord()) {
+            wordleUI.changeBlockColor();
+            wordInputField.text = "";
+            attempts--;
+        }
     }
 
     
@@ -46,19 +56,15 @@ public class WordlePlayer : MonoBehaviour
         playerInputWord = playerGuess.ToLower();
     }
 
-    // This is a default unity function. Whatever is in this function gets executed every single frame.
-    void Update() {
-        wordInputField.ActivateInputField();
-        if (Input.GetKeyDown("return") && isValidWord()) {
-            wordleUI.changeBlockColor();
-            wordInputField.text = "";
-            attempts--;
-        }
+
+    private string generateWord() {
+        int randomInd = Random.Range(0, words.Length);
+        return words[randomInd];
     }
 
     // Determines if the word is valid (already constrained to 5 characters, but just in case)
     private bool isValidWord() {
-        if (playerInputWord.Length == 5 && GenerateWord.wordsContains(playerInputWord)) {
+        if (playerInputWord.Length == 5 && ((IList)words).Contains(playerInputWord)) {
             return true;
         }
         return false;
@@ -66,7 +72,7 @@ public class WordlePlayer : MonoBehaviour
 
     
     // Returns the word the player entered, but only if it is a valid word.
-    public string getWord() {
+    public string getPlayerWord() {
         if (isValidWord()) {
             return playerInputWord;
         }
