@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+using TMPro;
 
 public class WordleUI : MonoBehaviour
 {
@@ -10,16 +10,17 @@ public class WordleUI : MonoBehaviour
     private Transform blocksPanel;
     private List<List<GameObject>> letterBlocksList;
     private WordlePlayer wordlePlayer;
+    private string playerInputWord;
 
     private Dictionary<char, int> letterCount = new Dictionary<char, int>(); // Dictionary to count amount of each letter in word
 
+    private bool isRotating = false;
     // Start is called before the first frame update
     void Start()
     {
         blocksPanel = GameObject.Find("BlocksPanel").GetComponent<Transform>();
         letterBlocksList = new List<List<GameObject>>();
         wordlePlayer = GameObject.Find("Game Manager").GetComponent<WordlePlayer>();
-
         /* The inner loop create the 5 blocks horizontally for the words.
             We want 6 rows so we do it 6 times with the outer loop. 
         */
@@ -32,6 +33,33 @@ public class WordleUI : MonoBehaviour
             }
         }
     }
+
+
+    private int blockRow = 0; // Used to keep track of which row of blocks to change
+    void Update() {
+
+        /* NOTE 1: Handle logic to update every block as player types in Input Field. 
+            Current issue is that backspace doesn't work properly. There might be a better way to do this,
+            but I did this at 5AM.
+        */
+        playerInputWord = wordlePlayer.playerInputWord;
+        int playerWordIndex = 0;
+        string letter = " ";
+
+        if (playerInputWord.Length <= 0 || Input.GetKeyDown("backspace")) { 
+            playerWordIndex = playerInputWord.Length - 1 <= 0 ? 0 : playerInputWord.Length - 1;
+            letter = " ";
+        } else if (playerInputWord.Length > 0 && !Input.GetKeyDown("backspace")) {
+            playerWordIndex = playerInputWord.Length - 1;
+            letter = playerInputWord[playerWordIndex].ToString();
+        }
+
+        Transform blockText = letterBlocksList[blockRow][playerWordIndex].transform.Find("Text");
+        blockText.GetComponent<TMP_Text>().text = letter;
+        // END OF NOTE 1
+    }
+
+
 
 
     // Populate letterCount dictionary with the occurrences of each letter in Correct Word
@@ -47,11 +75,34 @@ public class WordleUI : MonoBehaviour
     }
 
 
-    private int blockRow = 0; // Used to keep track of which row of blocks to change
+
+    // This coroutine add a rotation animation and applies the color when the image is flat
+    IEnumerator rotateBlock(GameObject block, Color32 color) {
+        Quaternion oldPosition = block.transform.rotation;
+        float rotateSpeed = 350f;
+        Quaternion endingPos = Quaternion.Euler(new Vector3(90, 0, 0));
+        while (Vector3.Distance(block.transform.rotation.eulerAngles, endingPos.eulerAngles) > 0.01f) {
+            block.transform.rotation = Quaternion.RotateTowards(block.transform.rotation, endingPos, rotateSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        endingPos = Quaternion.Euler(new Vector3(0, 0, 0));
+        while (Vector3.Distance(block.transform.rotation.eulerAngles, endingPos.eulerAngles) > 0.01f) {
+            if (block.transform.rotation.x >= -0.50f) {
+                block.GetComponent<Image>().color = color;
+            }
+            block.transform.rotation = Quaternion.RotateTowards(block.transform.rotation, endingPos, rotateSpeed * Time.deltaTime);
+            yield return null;
+        }
+        block.GetComponent<Image>().color = color;
+        block.transform.rotation = endingPos;
+    }
+
+
+
 
     public void changeBlockColor() {
         countLettersCorrectWord();
-
         string playerInputWord = wordlePlayer.playerInputWord;
         string correctWord = wordlePlayer.correctWord;
 
@@ -70,12 +121,10 @@ public class WordleUI : MonoBehaviour
             char guessLetter = playerInputWord[i];
 
             if (currLetter == guessLetter) { // Turn block green if guessLetter is in correct position
-                letterBlocksList[blockRow][i].GetComponent<Image>().color = green;
+                StartCoroutine(rotateBlock(letterBlocksList[blockRow][i], green));
                 letterCount[currLetter] = letterCount[currLetter] - 1;
                 continue;
             }
-
-            letterBlocksList[blockRow][i].GetComponent<Image>().color = gray;
         }
 
         for (int i = 0; i < playerInputWord.Length; i++) {
@@ -83,10 +132,13 @@ public class WordleUI : MonoBehaviour
             char guessLetter = playerInputWord[i];
             if (currLetter != guessLetter && correctWord.Contains(guessLetter)) { // Turn block yellow if in wrong position
                 if (letterCount[guessLetter] > 0) {
-                    letterBlocksList[blockRow][i].GetComponent<Image>().color = yellow;
+                    StartCoroutine(rotateBlock(letterBlocksList[blockRow][i], yellow));
                     letterCount[guessLetter] = letterCount[guessLetter] - 1;
                     continue;
                 }
+            }
+            if (currLetter != guessLetter) {
+                StartCoroutine(rotateBlock(letterBlocksList[blockRow][i], gray));
             }
         }
 
