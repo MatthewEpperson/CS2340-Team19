@@ -12,6 +12,8 @@ public class WordleUI : MonoBehaviour
     private WordlePlayer wordlePlayer;
     private string playerInputWord;
 
+    private int playerWordIndex = 0;
+
     private Dictionary<char, int> letterCount = new Dictionary<char, int>(); // Dictionary to count amount of each letter in word
 
     private bool isRotating = false;
@@ -43,11 +45,11 @@ public class WordleUI : MonoBehaviour
             but I did this at 5AM.
         */
         playerInputWord = wordlePlayer.playerInputWord;
-        int playerWordIndex = 0;
+        // int playerWordIndex = 0;
         string letter = " ";
 
         if (playerInputWord.Length <= 0 || Input.GetKeyDown("backspace")) { 
-            playerWordIndex = playerInputWord.Length - 1 <= 0 ? 0 : playerInputWord.Length - 1;
+            playerWordIndex = playerInputWord.Length <= 0 ? 0 : playerInputWord.Length;
             letter = " ";
         } else if (playerInputWord.Length > 0 && !Input.GetKeyDown("backspace")) {
             playerWordIndex = playerInputWord.Length - 1;
