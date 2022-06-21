@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class WordlePlayer : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class WordlePlayer : MonoBehaviour
     [SerializeField]
     public int attempts; // keeps track of attempts the player has used
 
+    public static bool playerWin;
+
     private WordleUI wordleUI; 
 
     public TMP_Text corrWord; // This is just for testing and displays on screen. Will remove once we merge into production.
@@ -22,10 +25,12 @@ public class WordlePlayer : MonoBehaviour
     TMP_InputField wordInputField; // this is for input field itself
 
 
+
     // Start is called before the first frame update
     void Start()
     {
         correctWord = generateWord(); // pulls a random word from words.csv and assigns it
+        playerWin = false;
 
         // NOTE 1: Displays correct word on screen just so we can test when playing. Remove this later.
         corrWord = GameObject.Find("CorrectWord").GetComponent<TMP_Text>();
@@ -42,9 +47,19 @@ public class WordlePlayer : MonoBehaviour
     void Update() {
         wordInputField.ActivateInputField();
         if (Input.GetKeyDown("return") && isValidWord()) {
-            wordleUI.changeBlockColor();
-            wordInputField.text = "";
             attempts--;
+            wordleUI.changeBlockColor();
+
+            if (playerInputWord.Equals(correctWord) || attempts <= 0) {
+                wordleUI.changeBlockColor();
+                if (playerInputWord.Equals(correctWord)) {
+                    playerWin = true;
+                }
+                SceneManager.LoadScene("EndScreenWordle");
+            }
+
+            wordInputField.text = "";
+
         } else {
             wordInputField.MoveTextEnd(true);
         }

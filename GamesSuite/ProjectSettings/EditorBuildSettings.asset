@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Go.unity
     guid: 13650a6317cec824ca89423ac5a956d5
+  - enabled: 1
+    path: Assets/Scenes/EndScreenWordle.unity
+    guid: 50f8c26523b08084d8f95896c6a1e2d5
   m_configObjects: {}

@@ -16,7 +16,7 @@ public class WordleUI : MonoBehaviour
 
     private Dictionary<char, int> letterCount = new Dictionary<char, int>(); // Dictionary to count amount of each letter in word
 
-    private bool isRotating = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -103,15 +103,17 @@ public class WordleUI : MonoBehaviour
 
 
 
-    public void changeBlockColor() {
+    public IEnumerator changeBlockColor() {
+
         countLettersCorrectWord();
+
         string playerInputWord = wordlePlayer.playerInputWord;
         string correctWord = wordlePlayer.correctWord;
 
         int attempts = wordlePlayer.attempts;
 
         if (attempts <= 0) { // if player is out of attempts, don't execute 
-            return;
+            yield return null;
         }
 
         Color32 yellow = new Color32(255, 255, 0, 255);
@@ -145,6 +147,7 @@ public class WordleUI : MonoBehaviour
         }
 
         blockRow++;
+        yield return new WaitForSeconds(5f);
     }
 
 }
