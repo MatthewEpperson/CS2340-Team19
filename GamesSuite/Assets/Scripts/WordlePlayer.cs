@@ -45,6 +45,8 @@ public class WordlePlayer : MonoBehaviour
             wordleUI.changeBlockColor();
             wordInputField.text = "";
             attempts--;
+        } else {
+            wordInputField.MoveTextEnd(true);
         }
     }
 
