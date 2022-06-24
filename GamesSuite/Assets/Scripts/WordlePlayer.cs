@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class WordlePlayer : MonoBehaviour
 {
@@ -17,12 +16,13 @@ public class WordlePlayer : MonoBehaviour
     public int attempts; // keeps track of attempts the player has used
 
     public static bool playerWin;
+    public static bool gameOver;
 
     private WordleUI wordleUI; 
 
     public TMP_Text corrWord; // This is just for testing and displays on screen. Will remove once we merge into production.
 
-    TMP_InputField wordInputField; // this is for input field itself
+    public static TMP_InputField wordInputField; // this is for input field itself
 
 
 
@@ -31,6 +31,7 @@ public class WordlePlayer : MonoBehaviour
     {
         correctWord = generateWord(); // pulls a random word from words.csv and assigns it
         playerWin = false;
+        gameOver = false;
 
         // NOTE 1: Displays correct word on screen just so we can test when playing. Remove this later.
         corrWord = GameObject.Find("CorrectWord").GetComponent<TMP_Text>();
@@ -45,23 +46,32 @@ public class WordlePlayer : MonoBehaviour
 
         // This is a default unity function. Whatever is in this function gets executed every single frame.
     void Update() {
-        wordInputField.ActivateInputField();
-        if (Input.GetKeyDown("return") && isValidWord()) {
-            attempts--;
-            wordleUI.changeBlockColor();
-
-            if (playerInputWord.Equals(correctWord) || attempts <= 0) {
-                wordleUI.changeBlockColor();
-                if (playerInputWord.Equals(correctWord)) {
-                    playerWin = true;
-                }
-                SceneManager.LoadScene("EndScreenWordle");
+        if (Time.timeScale != 0) {
+            if (!WordleUI.isBlockAnimPlaying) {
+                wordInputField.ActivateInputField();
+            } else {
+                wordInputField.DeactivateInputField();
             }
 
-            wordInputField.text = "";
+            if (Input.GetKeyDown("return") && !WordleUI.isBlockAnimPlaying) {
+                StartCoroutine(wordleUI.changeBlockColor());
 
+                if (isValidWord()) {
+                    attempts--;
+                }
+
+                if (playerInputWord.Equals(correctWord) || attempts <= 0) {
+                    if (playerInputWord.Equals(correctWord)) {
+                        playerWin = true;
+                    }
+                    gameOver = true;
+                }
+
+            } else {
+                wordInputField.MoveTextEnd(true);
+            }
         } else {
-            wordInputField.MoveTextEnd(true);
+            wordInputField.DeactivateInputField();
         }
     }
 
@@ -80,7 +90,7 @@ public class WordlePlayer : MonoBehaviour
     }
 
     // Determines if the word is valid (already constrained to 5 characters, but just in case)
-    private bool isValidWord() {
+    public bool isValidWord() {
         if (playerInputWord.Length == 5 && ((IList)words).Contains(playerInputWord)) {
             return true;
         }
