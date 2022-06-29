@@ -29,13 +29,26 @@ public class WordleUI : MonoBehaviour
         /* The inner loop create the 5 blocks horizontally for the words.
             We want 6 rows so we do it 6 times with the outer loop. 
         */
-        for (int j = 0; j < wordlePlayer.attempts; j++) {
-            letterBlocksList.Add(new List<GameObject>());
-            for (int i = 0; i < 5; i++) {
-                GameObject gameObj = Instantiate(letterBlock, new Vector3(0,0,0), 
-                                            Quaternion.identity, blocksPanel);
-                letterBlocksList[j].Add(gameObj);
+        // for (int j = 0; j < wordlePlayer.attempts; j++) {
+        //     letterBlocksList.Add(new List<GameObject>());
+        //     for (int i = 0; i < 5; i++) {
+        //         GameObject gameObj = Instantiate(letterBlock, new Vector3(0,0,0), 
+        //                                     Quaternion.identity, blocksPanel);
+        //         letterBlocksList[j].Add(gameObj);
+        //     }
+        // }
+
+        int j = 0;
+        int count = 0;
+        letterBlocksList.Add(new List<GameObject>());
+        foreach (Transform child in blocksPanel) {
+            if (count % 5 == 0 && count != 0) {
+                letterBlocksList.Add(new List<GameObject>());
+                j++;
             }
+            GameObject block = child.gameObject;
+            letterBlocksList[j].Add(block);
+            count++;
         }
     }
 
@@ -74,7 +87,7 @@ public class WordleUI : MonoBehaviour
     // Populate letterCount dictionary with the occurrences of each letter in Correct Word
     private void countLettersCorrectWord() {
         letterCount.Clear();
-        foreach (char letter in wordlePlayer.correctWord) {
+        foreach (char letter in WordlePlayer.correctWord) {
             if (letterCount.ContainsKey(letter)) {
                 letterCount[letter]++;
             } else {
@@ -143,7 +156,7 @@ public class WordleUI : MonoBehaviour
         countLettersCorrectWord();
 
         string playerInputWord = wordlePlayer.playerInputWord;
-        string correctWord = wordlePlayer.correctWord;
+        string correctWord = WordlePlayer.correctWord;
 
         int attempts = wordlePlayer.attempts;
 
@@ -221,7 +234,7 @@ public class WordleUI : MonoBehaviour
         }
 
 
-        if (WordlePlayer.gameOver && WordlePlayer.playerWin) {
+        if (WordlePlayer.gameOver) {
             for (int i = 0; i < 5; i++) {
                 StartCoroutine(bounceBlock(letterBlocksList[blockRow][i]));
                 yield return new WaitForSeconds(0.1f);
@@ -233,6 +246,11 @@ public class WordleUI : MonoBehaviour
         WordlePlayer.wordInputField.text = ""; // Clear input field after animations are done
 
         isBlockAnimPlaying = false;
-        blockRow++;
+        
+        if (blockRow + 1 >= 6) {
+            blockRow = 5;
+        } else {
+            blockRow++;
+        }
     }
 }
