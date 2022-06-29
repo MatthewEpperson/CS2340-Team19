@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class EndSceneUI : MonoBehaviour
 {
@@ -15,5 +16,12 @@ public class EndSceneUI : MonoBehaviour
                                 "The correct word was: " + WordlePlayer.correctWord.ToUpper();
         }
     }
+    
+    public void goToMainMenu() {
+        SceneManager.LoadScene("StartMenuScene");
+    }
 
+    public void goToWordle() {
+        SceneManager.LoadScene("Wordle");
+    }
 }
