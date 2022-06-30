@@ -164,11 +164,11 @@ public class WordleUI : MonoBehaviour
             yield return null;
         }
 
-        Color32 yellow = new Color32(255, 255, 0, 255);
-        Color32 green = new Color32(0, 255, 0, 255);
-        Color32 gray = new Color32(75, 75, 75, 255);
-        Color32 red = new Color32(255, 0, 0, 255);
-        Color32 defaultColor = new Color32(147, 147, 147, 255);
+        Color32 yellow = new Color32(255, 235, 32, 255);
+        Color32 green = new Color32(159, 224, 139, 255);
+        Color32 gray = new Color32(132, 139, 161, 221);
+        Color32 red = new Color32(222, 109, 78, 215);
+        Color32 defaultColor = new Color32(255, 255, 255, 255);
 
         // Stores correct color of a block. This is way we can handle block animation after handling logic.
         string[] blockColors = new string[5];
