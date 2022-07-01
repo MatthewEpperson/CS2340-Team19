@@ -29,26 +29,13 @@ public class WordleUI : MonoBehaviour
         /* The inner loop create the 5 blocks horizontally for the words.
             We want 6 rows so we do it 6 times with the outer loop. 
         */
-        // for (int j = 0; j < wordlePlayer.attempts; j++) {
-        //     letterBlocksList.Add(new List<GameObject>());
-        //     for (int i = 0; i < 5; i++) {
-        //         GameObject gameObj = Instantiate(letterBlock, new Vector3(0,0,0), 
-        //                                     Quaternion.identity, blocksPanel);
-        //         letterBlocksList[j].Add(gameObj);
-        //     }
-        // }
-
-        int j = 0;
-        int count = 0;
-        letterBlocksList.Add(new List<GameObject>());
-        foreach (Transform child in blocksPanel) {
-            if (count % 5 == 0 && count != 0) {
-                letterBlocksList.Add(new List<GameObject>());
-                j++;
+        for (int j = 0; j < wordlePlayer.attempts; j++) {
+            letterBlocksList.Add(new List<GameObject>());
+            for (int i = 0; i < 5; i++) {
+                GameObject gameObj = Instantiate(letterBlock, new Vector3(0,0,0), 
+                                            Quaternion.identity, blocksPanel);
+                letterBlocksList[j].Add(gameObj);
             }
-            GameObject block = child.gameObject;
-            letterBlocksList[j].Add(block);
-            count++;
         }
     }
 

@@ -33,11 +33,7 @@ public class WordlePlayer : MonoBehaviour
         playerWin = false;
         gameOver = false;
 
-        // NOTE 1: Displays correct word on screen just so we can test when playing. Remove this later.
-        corrWord = GameObject.Find("CorrectWord").GetComponent<TMP_Text>();
-        corrWord.text = "Correct Word: " + correctWord.ToUpper();
-        // END OF NOTE 1
-
+        Debug.Log($"Correct word: {correctWord}");
         wordleUI = GameObject.Find("Background").GetComponent<WordleUI>();
 
         wordInputField = GameObject.Find("PlayerWordGuess").GetComponent<TMP_InputField>();
