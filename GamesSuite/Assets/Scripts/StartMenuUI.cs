@@ -10,17 +10,18 @@ public class StartMenuUI : MonoBehaviour
     void Start()
     {
         leftPanel = GameObject.Find("LeftPanel").GetComponent<Transform>();
-        
+
         foreach (Transform child in leftPanel) {
-            StartCoroutine(floatGameObjects(child));
+            if (child.name != "Team Logo") {
+                StartCoroutine(floatGameObject(child));
+            }
         }
+
     }
 
+    IEnumerator floatGameObject(Transform obj) {
 
-
-    IEnumerator floatGameObjects(Transform obj) {
-
-        float speed = 10f;
+        float speed = 6.0f;
         while (true) {
             Vector3 oldPos = obj.transform.position;
 
@@ -43,4 +44,5 @@ public class StartMenuUI : MonoBehaviour
             obj.transform.position = oldPos;
         }
     }
-}
+
+ }
