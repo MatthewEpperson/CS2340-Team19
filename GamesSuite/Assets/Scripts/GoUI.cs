@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class GoUI : MonoBehaviour
 {
-    public Material GoBoardGrid;
+    private GameObject stones;
     // Start is called before the first frame update
     // Start draws the static Go board
     void Start()
     {
         GameObject boardGrid = GameObject.Find("boardGrid");
+        stones = GameObject.Find("stones");
         // Draw horizontal lines
         for(int i = 0; i < 9; i++){
             GameObject line = new GameObject("hLine");
@@ -53,7 +54,7 @@ public class GoUI : MonoBehaviour
                 LineRenderer lineRenderer;
                 lineRenderer = dot.GetComponent<LineRenderer>();
                 lineRenderer.material.color = Color.black;
-                DrawPolygon(lineRenderer, 20, 1, new Vector3(x,y,0), 1f, 1f);
+                DrawPolygon(lineRenderer, 20, 0.5f, new Vector3(x,y,0), 2f, 2f);
             }
         }
         for(int i = 0; i < 1; i++){
@@ -63,14 +64,42 @@ public class GoUI : MonoBehaviour
             LineRenderer lineRenderer;
             lineRenderer = dot.GetComponent<LineRenderer>();
             lineRenderer.material.color = Color.black;
-            DrawPolygon(lineRenderer, 20, 1, new Vector3(0,0,0), 1f, 1f);
+            DrawPolygon(lineRenderer, 20, 0.5f, new Vector3(0,0,0), 2f, 2f);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void printBoard(int[,] currState){
+        foreach (Transform child in stones.transform) {
+            GameObject.Destroy(child.gameObject);
+        }
+        for(int i=0; i<9; i++){
+            for(int j=0; j<9; j++){
+                int x = -80 + j*20;
+                int y = 80 - i*20;
+                if(currState[i,j] == 1){
+                    var stone = new GameObject ("bStone");
+                    stone.transform.parent = stones.transform;
+                    stone.transform.position = new Vector3(x,y,0);
+                    var spriteRenderer =stone.AddComponent<SpriteRenderer> ();
+                    var sp  = Resources.Load<Sprite>("Sprites/go-stones/b");
+                    spriteRenderer.sprite = sp;
+                }
+                if(currState[i,j] == -1){
+                    var stone = new GameObject ("wStone");
+                    stone.transform.parent = stones.transform;
+                    stone.transform.position = new Vector3(x,y,0);
+                    var spriteRenderer =stone.AddComponent<SpriteRenderer> ();
+                    var sp  = Resources.Load<Sprite>("Sprites/go-stones/w");
+                    spriteRenderer.sprite = sp;
+                }
+            }
+        }
     }
 
     // LineRenderer helper to draw a polygon
