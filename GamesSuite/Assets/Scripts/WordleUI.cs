@@ -11,6 +11,9 @@ public class WordleUI : MonoBehaviour
     private Transform blocksPanel;
     private List<List<GameObject>> letterBlocksList;
     private WordlePlayer wordlePlayer;
+
+    private GameObject gameOverMenu;
+    private GameObject title;
     public static bool isBlockAnimPlaying;
     private string playerInputWord;
 
@@ -22,6 +25,8 @@ public class WordleUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameOverMenu = GameObject.Find("Game Over Menu");
+        title = GameObject.Find("Title");
         isBlockAnimPlaying = false;
         blocksPanel = GameObject.Find("BlocksPanel").GetComponent<Transform>();
         letterBlocksList = new List<List<GameObject>>();
@@ -37,6 +42,11 @@ public class WordleUI : MonoBehaviour
                 letterBlocksList[j].Add(gameObj);
             }
         }
+
+        StartCoroutine(hoverTitle());
+
+        toggleGameOverMenu();
+
     }
 
 
@@ -49,7 +59,6 @@ public class WordleUI : MonoBehaviour
             but I did this at 5AM.
         */
         playerInputWord = wordlePlayer.playerInputWord;
-        // int playerWordIndex = 0;
         string letter = " ";
 
         if (!isBlockAnimPlaying) {
@@ -63,8 +72,12 @@ public class WordleUI : MonoBehaviour
             if (playerWordIndex >= 5) {
                 playerWordIndex -= 1;
             }
+
             Transform blockText = letterBlocksList[blockRow][playerWordIndex].transform.Find("Text");
-            blockText.GetComponent<TMP_Text>().text = letter;
+
+            if (!WordlePlayer.gameOver) {
+                blockText.GetComponent<TMP_Text>().text = letter;
+            }
         }
 
         // END OF NOTE 1
@@ -90,6 +103,9 @@ public class WordleUI : MonoBehaviour
         Quaternion oldPosition = block.transform.rotation;
         float rotateSpeed = 350f;
         Quaternion endingPos = Quaternion.Euler(new Vector3(90, 0, 0));
+        
+        block.GetComponent<WordleSound>().playBlockFlipSound();
+
         while (Vector3.Distance(block.transform.rotation.eulerAngles, endingPos.eulerAngles) > 0.01f) {
             block.transform.rotation = Quaternion.RotateTowards(block.transform.rotation, endingPos, rotateSpeed * Time.deltaTime);
             yield return null;
@@ -163,9 +179,10 @@ public class WordleUI : MonoBehaviour
 
         // Flashes blocks red signifying that the user did not input a valid word
         if (!wordlePlayer.isValidWord()) {
-            for (int i = 0; i < 3; i++) { // flash three times
+            for (int i = 0; i < 4; i++) { // flash four times
                 for (int j = 0; j < 5; j++) {
                     letterBlocksList[blockRow][j].GetComponent<Image>().color = red;
+                    blocksPanel.GetComponent<WordleSound>().playErrorSound();
                 }
                 yield return new WaitForSeconds(0.1f);
                 for (int j = 0; j < 5; j++) {
@@ -222,12 +239,19 @@ public class WordleUI : MonoBehaviour
 
 
         if (WordlePlayer.gameOver) {
+            if (WordlePlayer.playerWin) {
+                blocksPanel.GetComponent<WordleSound>().playVictorySound();
+            } else {
+                blocksPanel.GetComponent<WordleSound>().playLoseSound();
+                GameObject.Find("Main Camera").GetComponent<AudioSource>().Stop();
+            }
             for (int i = 0; i < 5; i++) {
                 StartCoroutine(bounceBlock(letterBlocksList[blockRow][i]));
                 yield return new WaitForSeconds(0.1f);
             }
             yield return new WaitForSeconds(0.5f);
-            SceneManager.LoadScene("EndScreenWordle");
+            toggleGameOverMenu();
+
         }
 
         WordlePlayer.wordInputField.text = ""; // Clear input field after animations are done
@@ -238,6 +262,53 @@ public class WordleUI : MonoBehaviour
             blockRow = 5;
         } else {
             blockRow++;
+        }
+    }
+
+
+
+    IEnumerator hoverTitle() {
+        Vector3 oldPos = title.transform.position;
+
+        float speed = 15.0f;
+
+        float title_x = title.transform.position.x;
+        float title_y = title.transform.position.y;
+        float title_z = title.transform.position.z;
+
+        while (true) {
+            while (title_y > (oldPos.y - 10.0f)) {
+                title_y -= speed * Time.deltaTime;
+                title.transform.position = new Vector3(title_x, title_y, title_z);
+                yield return null;
+            }
+
+            while (title_y < (oldPos.y)) {
+                title_y += speed * Time.deltaTime;
+                title.transform.position = new Vector3(title_x, title_y, title_z);
+                yield return null;
+            }
+
+            title.transform.position = oldPos;
+        }
+
+    }
+
+
+    private void toggleGameOverMenu() {
+
+        gameOverMenu.SetActive(!gameOverMenu.activeSelf);
+
+        if (gameOverMenu.activeSelf) {
+
+            TMP_Text gameOverText = GameObject.Find("Game Over Text").GetComponent<TMP_Text>();
+
+            if (WordlePlayer.playerWin) {
+                gameOverText.text = "You WON!";
+            } else {
+                gameOverText.text = $"You LOST!\n The correct word was: {WordlePlayer.correctWord}";
+            }
+
         }
     }
 }
