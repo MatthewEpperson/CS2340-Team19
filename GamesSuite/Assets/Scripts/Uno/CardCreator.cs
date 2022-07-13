@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class CardCreator : MonoBehaviour
 {
@@ -12,6 +13,14 @@ public class CardCreator : MonoBehaviour
     public static List<GameObject> listOfCards = new List<GameObject>();
 
     public static string[] colors = {"red", "yellow", "blue", "green"};
+    public static Dictionary<string, Color> colorDict = new Dictionary<string, Color>
+                    {
+                        {"red", new Color(255,0,0)},
+                        {"yellow", new Color(255,255,0)},
+                        {"blue", new Color(0,0,255)},
+                        {"green", new Color(0,255,0)}
+                    };
+    
     public static string[] actionTypes = {"draw 2", "reverse", "skip"};
     public static string[] wildTypes = {"draw 4 wild", "color wild"};
 
@@ -24,6 +33,8 @@ public class CardCreator : MonoBehaviour
         card.name = $"{color} {number} card";
         cardInfo.setColor(color);
         cardInfo.setNumber(number);
+        card.transform.GetChild(0).GetComponent<TMP_Text>().text = number.ToString();
+        card.GetComponent<SpriteRenderer>().color = colorDict[color];
 
         listOfCards.Add(card);
     }
@@ -37,7 +48,6 @@ public class CardCreator : MonoBehaviour
         card.name = $"{color} {actionType} card";
         cardInfo.setColor(color);
         cardInfo.setActionType(actionType);
-
         listOfCards.Add(card);
     }
 
