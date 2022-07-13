@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
+using System.Text.RegularExpressions;
 using TMPro;
 
 public class WordlePlayer : MonoBehaviour
@@ -76,7 +77,9 @@ public class WordlePlayer : MonoBehaviour
         We have to assign it to playerInputWord so we can actually do logic with it in the code.
     */
     public void readPlayerInput(string playerGuess) {
+        playerInputWord = Regex.Replace(playerInputWord, @"[^a-zA-Z]", "");
         playerInputWord = playerGuess.ToLower();
+        wordInputField.text = Regex.Replace(playerInputWord, @"[^a-zA-Z]", "");
     }
 
 

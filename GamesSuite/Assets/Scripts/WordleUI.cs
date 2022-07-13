@@ -55,8 +55,6 @@ public class WordleUI : MonoBehaviour
     void Update() {
 
         /* NOTE 1: Handle logic to update every block as player types in Input Field. 
-            Current issue is that backspace doesn't work properly. There might be a better way to do this,
-            but I did this at 5AM.
         */
         playerInputWord = wordlePlayer.playerInputWord;
         string letter = " ";
