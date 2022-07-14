@@ -2477,7 +2477,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 508634372}
         m_TargetAssemblyTypeName: PauseLogic, Assembly-CSharp
-        m_MethodName: restartGame
+        m_MethodName: restartWordleGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

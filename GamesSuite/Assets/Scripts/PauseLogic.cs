@@ -18,8 +18,12 @@ public class PauseLogic : MonoBehaviour
         SceneManager.LoadScene("StartMenuScene");
     }
 
-    public void restartGame() {
+    public void restartWordleGame() {
         Time.timeScale = 1;
         SceneManager.LoadScene("Wordle");
+    }
+    public void restartGoGame() {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Go");
     }
 }
