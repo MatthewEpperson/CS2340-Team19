@@ -304,7 +304,7 @@ public class WordleUI : MonoBehaviour
             if (WordlePlayer.playerWin) {
                 gameOverText.text = "You WON!";
             } else {
-                gameOverText.text = $"You LOST!\n The correct word was: {WordlePlayer.correctWord}";
+                gameOverText.text = $"You LOST!\n The correct word was: {WordlePlayer.correctWord.ToUpper()}";
             }
 
         }

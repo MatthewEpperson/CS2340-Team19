@@ -10,7 +10,7 @@ public class WordlePlayer : MonoBehaviour
 {
 
     public string playerInputWord; // String to keep track of what player types from input field
-    private string[] words = System.IO.File.ReadAllLines("Assets/Scripts/words.csv"); // Parses words.csv into an array
+    private string[] words = System.IO.File.ReadAllLines("Assets/Scripts/Wordle/words.csv"); // Parses words.csv into an array
     public static string correctWord;
 
     [SerializeField]
