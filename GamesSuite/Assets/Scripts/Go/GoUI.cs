@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GoUI : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class GoUI : MonoBehaviour
     void Start()
     {
         GameObject boardGrid = GameObject.Find("boardGrid");
+        boardGrid.transform.position = new Vector3(boardGrid.transform.position.x,
+                                                    boardGrid.transform.position.y,
+                                                    -250f);
         stones = GameObject.Find("stones");
         // Draw horizontal lines
         for(int i = 0; i < 9; i++){
@@ -25,7 +29,11 @@ public class GoUI : MonoBehaviour
             lineRenderer.endWidth = 0.5f;
             lineRenderer.material.color = Color.black;
             lineRenderer.SetPositions(pos.ToArray());
-            lineRenderer.useWorldSpace = true;
+            lineRenderer.useWorldSpace = false;
+            lineRenderer.transform.position = new Vector3(lineRenderer.transform.position.x,
+                                                    lineRenderer.transform.position.y,
+                                                    20f);
+
         }
         // draw verticle lines
          for(int i = 0; i < 9; i++){
@@ -41,7 +49,10 @@ public class GoUI : MonoBehaviour
             lineRenderer.endWidth = 0.5f;
             lineRenderer.material.color = Color.black;
             lineRenderer.SetPositions(pos.ToArray());
-            lineRenderer.useWorldSpace = true;
+            lineRenderer.useWorldSpace = false;
+            lineRenderer.transform.position = new Vector3(lineRenderer.transform.position.x,
+                                                    lineRenderer.transform.position.y,
+                                                    20f);
         }
         // draw dots
         for(int i = 0; i < 2; i++){
@@ -54,7 +65,11 @@ public class GoUI : MonoBehaviour
                 LineRenderer lineRenderer;
                 lineRenderer = dot.GetComponent<LineRenderer>();
                 lineRenderer.material.color = Color.black;
+                lineRenderer.useWorldSpace = false;
                 DrawPolygon(lineRenderer, 20, 0.5f, new Vector3(x,y,0), 2f, 2f);
+                lineRenderer.transform.position = new Vector3(lineRenderer.transform.position.x,
+                                                    lineRenderer.transform.position.y,
+                                                    20f);
             }
         }
         for(int i = 0; i < 1; i++){
@@ -64,7 +79,11 @@ public class GoUI : MonoBehaviour
             LineRenderer lineRenderer;
             lineRenderer = dot.GetComponent<LineRenderer>();
             lineRenderer.material.color = Color.black;
+            lineRenderer.useWorldSpace = false;
             DrawPolygon(lineRenderer, 20, 0.5f, new Vector3(0,0,0), 2f, 2f);
+            lineRenderer.transform.position = new Vector3(lineRenderer.transform.position.x,
+                                                    lineRenderer.transform.position.y,
+                                                    20f);
         }
     }
 
@@ -75,28 +94,32 @@ public class GoUI : MonoBehaviour
     }
 
     public void printBoard(int[,] currState){
-        foreach (Transform child in stones.transform) {
-            GameObject.Destroy(child.gameObject);
-        }
-        for(int i=0; i<9; i++){
-            for(int j=0; j<9; j++){
-                int x = -80 + j*20;
-                int y = 80 - i*20;
-                if(currState[i,j] == 1){
-                    var stone = new GameObject ("bStone");
-                    stone.transform.parent = stones.transform;
-                    stone.transform.position = new Vector3(x,y,0);
-                    var spriteRenderer =stone.AddComponent<SpriteRenderer> ();
-                    var sp  = Resources.Load<Sprite>("Sprites/go-stones/b");
-                    spriteRenderer.sprite = sp;
-                }
-                if(currState[i,j] == -1){
-                    var stone = new GameObject ("wStone");
-                    stone.transform.parent = stones.transform;
-                    stone.transform.position = new Vector3(x,y,0);
-                    var spriteRenderer =stone.AddComponent<SpriteRenderer> ();
-                    var sp  = Resources.Load<Sprite>("Sprites/go-stones/w");
-                    spriteRenderer.sprite = sp;
+        if (Time.timeScale != 0) {
+            foreach (Transform child in stones.transform) {
+                GameObject.Destroy(child.gameObject);
+            }
+            for(int i=0; i<9; i++){
+                for(int j=0; j<9; j++){
+                    int x = -80 + j*20;
+                    int y = 80 - i*20;
+                    if(currState[i,j] == 1){
+                        var stone = new GameObject ("bStone");
+                        stone.transform.parent = stones.transform;
+                        stone.transform.position = new Vector3(x,y,0);
+                        stone.transform.localScale = new Vector3(1, 1, 1);
+                        var imageRenderer = stone.AddComponent<Image> ();
+                        var sp  = Resources.Load<Sprite>("Sprites/go-stones/b");
+                        imageRenderer.sprite = sp;
+                    }
+                    if(currState[i,j] == -1){
+                        var stone = new GameObject ("wStone");
+                        stone.transform.parent = stones.transform;
+                        stone.transform.position = new Vector3(x,y,0);
+                        stone.transform.localScale = new Vector3(1, 1, 1);
+                        var imageRenderer = stone.AddComponent<Image> ();
+                        var sp  = Resources.Load<Sprite>("Sprites/go-stones/w");
+                        imageRenderer.sprite = sp;
+                    }
                 }
             }
         }

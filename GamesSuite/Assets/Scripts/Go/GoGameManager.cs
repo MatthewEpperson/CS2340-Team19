@@ -20,42 +20,44 @@ public class GoGameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // get mouse input move
-        int currMoveX = 0;
-        int currMoveY = 0;
-        int turn = goBoard.getTurn();
-        if (Input.GetMouseButtonDown(0)){
-            Vector3 mousePos = Input.mousePosition;
-            (currMoveX,currMoveY) = mouseInputMove(mousePos.x, mousePos.y);
-            newMove = true;
-        }
-
-        bool resetCurrState = false;
-        // check the validity of the new move if there is one
-        if(newMove){
-            // reset the newMove flag
-            newMove = false;
-            int[,] prevState = goBoard.getPrevState();
-            goBoard.makeMove(currMoveX, currMoveY, turn);
-            update = validMove(prevState, goBoard.getCurrState(), turn, (currMoveX, currMoveY));
-            if(!update){
-                resetCurrState = true;
+        if (Time.timeScale != 0) {
+            // get mouse input move
+            int currMoveX = 0;
+            int currMoveY = 0;
+            int turn = goBoard.getTurn();
+            if (Input.GetMouseButtonDown(0)){
+                Vector3 mousePos = Input.mousePosition;
+                (currMoveX,currMoveY) = mouseInputMove(mousePos.x, mousePos.y);
+                newMove = true;
             }
-        }
 
-        // update the board
-        if(update){
-            update = false;
-            // goBoard.makeMove(currMoveX,currMoveY, turn);
-            int[,] currState = goBoard.getCurrState();
-            goBoard.logCurrState(goBoard.deepCopy(currState));
-            goBoard.nextTurn();
-            goUI.printBoard(currState);
-        }
-        if(resetCurrState){
-            resetCurrState = false;
-            if(goBoard.getTurnCount() > 0){
-                goBoard.resetCurrState();
+            bool resetCurrState = false;
+            // check the validity of the new move if there is one
+            if(newMove){
+                // reset the newMove flag
+                newMove = false;
+                int[,] prevState = goBoard.getPrevState();
+                goBoard.makeMove(currMoveX, currMoveY, turn);
+                update = validMove(prevState, goBoard.getCurrState(), turn, (currMoveX, currMoveY));
+                if(!update){
+                    resetCurrState = true;
+                }
+            }
+
+            // update the board
+            if(update){
+                update = false;
+                // goBoard.makeMove(currMoveX,currMoveY, turn);
+                int[,] currState = goBoard.getCurrState();
+                goBoard.logCurrState(goBoard.deepCopy(currState));
+                goBoard.nextTurn();
+                goUI.printBoard(currState);
+            }
+            if(resetCurrState){
+                resetCurrState = false;
+                if(goBoard.getTurnCount() > 0){
+                    goBoard.resetCurrState();
+                }
             }
         }
     }

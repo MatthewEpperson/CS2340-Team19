@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseLogic : MonoBehaviour
 {
     public void pauseGame() {
+        Debug.Log("Game is Paused");
         Time.timeScale = 0;
     }
 
@@ -20,6 +21,6 @@ public class PauseLogic : MonoBehaviour
 
     public void restartGame() {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Wordle");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
