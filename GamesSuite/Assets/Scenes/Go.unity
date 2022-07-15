@@ -769,22 +769,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Enter any five letter word
+  m_text: '- Black makes the first move.
 
+    - To make a move, place one stone on
+    an empty intersection on the board.
 
-    - Letters entered that are in the correct
-    word and at the correct position will be highlighted green
+    - A stone or solidly connected group
+    of stones of one color is captured and removed from the board when all the intersections
+    directly adjacent to it are occupied by the enemy.
 
+    - No stone may be played
+    so as to recreate a former board position.
 
-    - Letters entered
-    that are in the correct word, but in the wrong position will be highlighted yellow
+    - Two consecutive passes end
+    the game.
 
+    - A player''s area consists of all the points the player has either
+    occupied or surrounded.
 
-    -
-    Keep guessing until you get the word right
-
-
-    Good Luck!'
+    - The player with more area wins.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65ea2005317e30b48a77443e6158d373, type: 2}
   m_sharedMaterial: {fileID: -5392404290484770389, guid: 65ea2005317e30b48a77443e6158d373, type: 2}
@@ -1294,8 +1297,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17.541, y: 9.773}
-  m_SizeDelta: {x: 247.452, y: 245.061}
+  m_AnchoredPosition: {x: -17.541, y: -28.186}
+  m_SizeDelta: {x: 247.452, y: 269.578}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &657129998
 MonoBehaviour:
