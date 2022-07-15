@@ -32,9 +32,6 @@ public class Deck : MonoBehaviour
             deck.Push(card);
         }
 
-        Debug.Log("Deck Successfully Shuffled");
-        Debug.Log(deck.Count);
-
     }
 
 

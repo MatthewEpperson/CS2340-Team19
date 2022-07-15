@@ -587,8 +587,8 @@ TextureImporter:
       name: blue card 5
       rect:
         serializedVersion: 2
-        x: 1652
-        y: 2319
+        x: 1636
+        y: 2340
         width: 410
         height: 585
       alignment: 0
@@ -609,9 +609,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2045
-        y: 2340.8572
-        width: 409.6
-        height: 585.1429
+        y: 2340
+        width: 410
+        height: 585
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -651,9 +651,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2863
-        y: 2340.8572
-        width: 409.6
-        height: 585.1429
+        y: 2340
+        width: 410
+        height: 585
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -693,9 +693,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3681
-        y: 2340.8572
-        width: 409.6
-        height: 585.1429
+        y: 2340
+        width: 410
+        height: 585
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 1, y: 0, z: 0, w: 0}

@@ -21,7 +21,7 @@ public class CardCreator : MonoBehaviour
     public Sprite[] cardSprites;
 
     void Start() {
-        cardSprites = Resources.LoadAll<Sprite>("Sprites/Uno/UNO-Front");
+        cardSprites = Resources.LoadAll<Sprite>("Sprites/Uno");
     }
 
     public void createNumberCard(int number, string color, Transform parent) {
@@ -128,7 +128,6 @@ public class CardCreator : MonoBehaviour
                         createNumberCard(j, colors[i], deck.transform);
                     }
                 }
-                Debug.Log($"Created {colors[i]} {j} card");
             }
         }
     }
