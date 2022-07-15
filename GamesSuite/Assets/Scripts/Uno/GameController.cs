@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,10 +11,14 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject opponentHand3;
     [SerializeField] private GameObject playerHand;
 
+    public static string[] players = {"Player", "Opponent"};
+    public static string currTurn;
     private List<GameObject> hands = new List<GameObject>();
 
     void Start()
     {
+        currTurn = players[0];
+
         hands.Add(playerHand);
         hands.Add(opponentHand1);
         hands.Add(opponentHand2);
@@ -31,11 +36,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(currTurn);
     }
 
     IEnumerator dealInitialCards(List<GameObject> cardsInhand, GameObject hand) {
-        Debug.Log("Coroutine started");
         yield return new WaitForSeconds(0.3f); // wait 0.3 seconds to allow deck to be shuffled before dealing cards
         for (int i = 0; i < 7; i++) {
             GameObject card = Deck.getCardFromDeck();
@@ -51,6 +55,17 @@ public class GameController : MonoBehaviour
         card.transform.SetParent(playAreaDeck.transform, false);
         card.transform.position = playAreaDeck.transform.position;
         playAreaStack.Push(card);
-        Debug.Log("Assigned");
+    }
+
+
+
+    public static void nextTurn() {
+        int indexOfTurn = Array.IndexOf(players, currTurn);
+        if (indexOfTurn >= players.Length - 1) {
+            indexOfTurn = 0;
+        } else {
+            indexOfTurn++;
+        }
+        currTurn = players[indexOfTurn];
     }
 }

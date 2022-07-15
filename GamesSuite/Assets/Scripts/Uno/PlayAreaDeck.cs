@@ -22,4 +22,8 @@ public class PlayAreaDeck : MonoBehaviour
     public static GameObject getPlayArea() {
         return playArea;
     }
+
+    public static GameObject getCardFromPlayArea() {
+        return playAreaStack.Peek();
+    }
 }

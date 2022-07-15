@@ -8,7 +8,26 @@ public class PlayerController : MonoBehaviour
     public Hand hand;
     [SerializeField] private List<GameObject> cardsInHand;
 
-    public void drawCard(List<GameObject> hand) {
-        hand.Add(Deck.getCardFromDeck());
+    void Start() {
+        cardsInHand = hand.getCardsInHand();
+    }
+
+    public void onCardClick(GameObject card) {
+        Card cardInfo = card.GetComponent<Card>();
+        Card cardOnPlayArea = PlayAreaDeck.getCardFromPlayArea().GetComponent<Card>();
+
+        if (cardInfo.getColor() == cardOnPlayArea.getColor() ||
+            cardInfo.GetType() == typeof(WildCard)) {
+
+                hand.playCard(card, PlayAreaDeck.getPlayArea());
+
+        } else if (cardInfo.GetType() == typeof(NumberCard) &&
+                    cardOnPlayArea.GetType() == typeof(NumberCard)) {
+            if (((NumberCard)cardInfo).getNumber() == ((NumberCard)cardOnPlayArea).getNumber()) {
+                hand.playCard(card, PlayAreaDeck.getPlayArea());
+            }
+        }
+
+
     }
 }

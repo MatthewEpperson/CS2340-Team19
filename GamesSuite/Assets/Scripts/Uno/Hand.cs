@@ -8,16 +8,12 @@ public class Hand : MonoBehaviour
     [SerializeField] private GameObject hand;
     [SerializeField] private List<GameObject> cardsInHand;
 
-    void Start() {
-
-    }
-
     public GameObject getHand() {
         return hand;
     }
 
     public List<GameObject> getCardsInHand() {
-        return cardsInHand;
+        return this.cardsInHand;
     }
 
     public void drawCard(GameObject hand) {
@@ -30,6 +26,15 @@ public class Hand : MonoBehaviour
 
     public void playCard(GameObject card, GameObject playArea) {
         card.transform.SetParent(playArea.transform, false);
+        card.transform.position = new Vector3(playArea.transform.position.x,
+                                                playArea.transform.position.y,
+                                                (PlayAreaDeck.getCardFromPlayArea().transform.position.z) - 1.0f);
+        
+        
+        Debug.Log("Card Pushed");
+        cardsInHand.Remove(card);
+        GameController.nextTurn();
+        PlayAreaDeck.playAreaStack.Push(card);
     }
 
 

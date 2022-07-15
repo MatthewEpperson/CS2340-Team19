@@ -515,6 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 934823198}
   - component: {fileID: 934823199}
+  - component: {fileID: 934823201}
   - component: {fileID: 934823200}
   m_Layer: 0
   m_Name: Opponent Hand
@@ -583,6 +584,21 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &934823201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 934823197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4c5e6ef0b1db0b4784d453ccdae6e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 934823199}
+  handGameObj: {fileID: 934823197}
+  gameController: {fileID: 1775791361}
 --- !u!1 &1051760161
 GameObject:
   m_ObjectHideFlags: 0
