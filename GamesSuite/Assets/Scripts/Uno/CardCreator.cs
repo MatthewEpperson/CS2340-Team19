@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using TMPro;
 
 public class CardCreator : MonoBehaviour
@@ -13,29 +14,34 @@ public class CardCreator : MonoBehaviour
     public static List<GameObject> listOfCards = new List<GameObject>();
 
     public static string[] colors = {"red", "yellow", "blue", "green"};
-    public static Dictionary<string, Color> colorDict = new Dictionary<string, Color>
-                    {
-                        {"red", new Color(255,0,0)},
-                        {"yellow", new Color(255,255,0)},
-                        {"blue", new Color(0,0,255)},
-                        {"green", new Color(0,255,0)}
-                    };
-    
+
     public static string[] actionTypes = {"draw 2", "reverse", "skip"};
     public static string[] wildTypes = {"draw 4 wild", "color wild"};
 
+    public Sprite[] cardSprites;
 
+    void Start() {
+        cardSprites = Resources.LoadAll<Sprite>("Sprites/Uno/UNO-Front");
+    }
 
     public void createNumberCard(int number, string color, Transform parent) {
         GameObject card = Instantiate(this.numberCard, new Vector3(0,0,0), Quaternion.identity, parent);
 
         NumberCard cardInfo = card.GetComponent<NumberCard>();
-        card.name = $"{color} {number} card";
+        card.name = $"{color} card {number}";
         cardInfo.setColor(color);
         cardInfo.setNumber(number);
-        card.transform.GetChild(0).GetComponent<TMP_Text>().text = number.ToString();
-        card.GetComponent<SpriteRenderer>().color = colorDict[color];
 
+        Sprite cardSprite = null;
+
+        foreach (Sprite sprite in cardSprites) {
+            if (sprite.name == card.name) {
+                cardSprite = sprite;
+                break;
+            }
+        }
+
+        card.GetComponent<SpriteRenderer>().sprite = cardSprite;
         listOfCards.Add(card);
     }
 
@@ -48,6 +54,17 @@ public class CardCreator : MonoBehaviour
         card.name = $"{color} {actionType} card";
         cardInfo.setColor(color);
         cardInfo.setActionType(actionType);
+
+        Sprite cardSprite = null;
+
+        foreach (Sprite sprite in cardSprites) {
+            if (sprite.name == card.name) {
+                cardSprite = sprite;
+                break;
+            }
+        }
+
+        card.GetComponent<SpriteRenderer>().sprite = cardSprite;
         listOfCards.Add(card);
     }
 
@@ -57,10 +74,20 @@ public class CardCreator : MonoBehaviour
         GameObject card = Instantiate(this.wildCard, new Vector3(0,0,0), Quaternion.identity, parent);
 
         WildCard cardInfo = card.GetComponent<WildCard>();
-        card.name = $"{color} {wildType} card";
+        card.name = $"{wildType} card";
         cardInfo.setColor(color);
         cardInfo.setWildType(wildType);
 
+        Sprite cardSprite = null;
+
+        foreach (Sprite sprite in cardSprites) {
+            if (sprite.name == card.name) {
+                cardSprite = sprite;
+                break;
+            }
+        }
+
+        card.GetComponent<SpriteRenderer>().sprite = cardSprite;
         listOfCards.Add(card);
     }
 
