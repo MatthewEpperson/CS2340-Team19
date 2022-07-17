@@ -16,4 +16,5 @@ public class NumberCard : Card
     public int getNumber() {
         return this.number;
     }
+    
 }

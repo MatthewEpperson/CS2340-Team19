@@ -20,11 +20,22 @@ public class AIController : MonoBehaviour
         if (GameController.currTurn == "Opponent") {
             StartCoroutine(findAllPlayableCards());
             int randNum = Random.Range(0, playableCards.Count);
-            hand.playCard(playableCards[randNum], PlayAreaDeck.getPlayArea());
+            hand.playCard(isWildCard(playableCards[randNum]), PlayAreaDeck.getPlayArea());
             Debug.Log($"Current Playable Cards: {playableCards.Count}");
         }
 
         Debug.Log($"Top of Stack: {PlayAreaDeck.getCardFromPlayArea().gameObject.name}");
+    }
+
+
+    private GameObject isWildCard(GameObject card) {
+        Card cardInfo = card.GetComponent<Card>();
+        if (cardInfo.GetType() == typeof(WildCard)) {
+            int randNum = Random.Range(0, CardCreator.colors.Length);
+            cardInfo.setColor(CardCreator.colors[randNum]);
+        }
+
+        return card;
     }
 
     IEnumerator findAllPlayableCards() {
@@ -50,18 +61,18 @@ public class AIController : MonoBehaviour
         Card cardInfo = card.GetComponent<Card>();
         Card cardOnPlayArea = PlayAreaDeck.getCardFromPlayArea().GetComponent<Card>();
 
-        if (cardInfo.getColor() == cardOnPlayArea.getColor() ||
-            cardInfo.GetType() == typeof(WildCard)) {
-
+        if (cardInfo.getColor() == cardOnPlayArea.getColor()) {
                 return true;
-
         } else if (cardInfo.GetType() == typeof(NumberCard) &&
                     cardOnPlayArea.GetType() == typeof(NumberCard)) {
             if (((NumberCard)cardInfo).getNumber() == ((NumberCard)cardOnPlayArea).getNumber()) {
                 return true;
             }
+        } else if (cardInfo.GetType() == typeof(WildCard)) {
+            return true;
         }
 
         return false;
     }
+
 }

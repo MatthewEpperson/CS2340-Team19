@@ -96,7 +96,7 @@ public class CardCreator : MonoBehaviour
     public void createAllWildCards() {
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 4; j++) {
-                createWildCard(wildTypes[i], "", deck.transform);
+                createWildCard(wildTypes[i], "black", deck.transform);
             }
         }
     }
