@@ -11,13 +11,15 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject opponentHand3;
     [SerializeField] private GameObject playerHand;
 
-    public static string[] players = {"Player", "Opponent"};
+    public static string[] players = {"Player", "Opponent 1", "Opponent 2", "Opponent 3"};
     public static string currTurn;
+
     private List<GameObject> hands = new List<GameObject>();
 
     void Start()
     {
-        currTurn = players[0];
+
+        currTurn = players[0]; // Game always starts with player
 
         hands.Add(playerHand);
         hands.Add(opponentHand1);
@@ -58,7 +60,6 @@ public class GameController : MonoBehaviour
     }
 
 
-
     public static void nextTurn() {
         int indexOfTurn = Array.IndexOf(players, currTurn);
         if (indexOfTurn >= players.Length - 1) {
@@ -66,6 +67,11 @@ public class GameController : MonoBehaviour
         } else {
             indexOfTurn++;
         }
+
+        if (indexOfTurn != 0) {
+            CountdownController.generateAITimer();
+        }
         currTurn = players[indexOfTurn];
+        CountdownController.resetTimer();
     }
 }

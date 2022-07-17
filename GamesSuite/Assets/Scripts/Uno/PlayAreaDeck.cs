@@ -4,19 +4,14 @@ using UnityEngine;
 
 public class PlayAreaDeck : MonoBehaviour
 {
-    [SerializeField] private static GameObject playArea;
+    private static GameObject playArea;
     public static Stack<GameObject> playAreaStack = new Stack<GameObject>();
+
 
     // Start is called before the first frame update
     void Start()
     {
         playArea = GameObject.Find("Played Area");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public static GameObject getPlayArea() {

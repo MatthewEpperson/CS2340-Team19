@@ -5,27 +5,82 @@ using UnityEngine;
 public class AIController : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] Hand hand;
-    [SerializeField] GameObject handGameObj;
+    [SerializeField] GameObject opponentObj1;
+    [SerializeField] GameObject opponentObj2;
+    [SerializeField] GameObject opponentObj3;
+    [SerializeField] Hand oppHand1;
+    [SerializeField] Hand oppHand2;
+    [SerializeField] Hand oppHand3;
     [SerializeField] GameController gameController;
+    private Hand hand;
+    private GameObject handGameObj;
     private List<GameObject> playableCards = new List<GameObject>();
+
+
     void Start()
     {
         // StartCoroutine(findAllPlayableCards());
     }
 
+
     // Update is called once per frame
     void Update()
     {
-        if (GameController.currTurn == "Opponent") {
-            StartCoroutine(findAllPlayableCards());
-            int randNum = Random.Range(0, playableCards.Count);
-            hand.playCard(isWildCard(playableCards[randNum]), PlayAreaDeck.getPlayArea());
-            Debug.Log($"Current Playable Cards: {playableCards.Count}");
+        if (GameController.currTurn.Equals("Opponent 1")) {
+            hand = oppHand1;
+            handGameObj = opponentObj1;
+        }
+        if (GameController.currTurn.Equals("Opponent 2")) {
+            hand = oppHand2;
+            handGameObj = opponentObj2;
+        }
+        if (GameController.currTurn.Equals("Opponent 3")) {
+            hand = oppHand3;
+            handGameObj = opponentObj3;
         }
 
-        Debug.Log($"Top of Stack: {PlayAreaDeck.getCardFromPlayArea().gameObject.name}");
+        Debug.Log("Opponent 1: " + oppHand1.getCardsInHand().Count);
+        Debug.Log("Opponent 2: " + oppHand2.getCardsInHand().Count);
+        Debug.Log("Opponent 3: " + oppHand3.getCardsInHand().Count);
+
+        if (GameController.currTurn != "Player") {
+            if (CountdownController.currentTime >= 30) {
+                StartCoroutine(findAllPlayableCards());
+            }
+            int randNum = Random.Range(0, playableCards.Count);
+            if (CountdownController.currentTime <= CountdownController.aiTimer) {
+                hand.playCard(isWildCard(playableCards[randNum]), PlayAreaDeck.getPlayArea());
+            }
+                // Debug.Log($"Current Playable Cards: {playableCards.Count}");
+        }
+
+        // Debug.Log($"Top of Stack: {PlayAreaDeck.getCardFromPlayArea().gameObject.name}");
     }
+
+    private void printList() {
+        // string s = "";
+        // foreach (GameObject card in playableCards) {
+        //     s += card.gameObject.name + " | ";
+        // }
+        // Debug.Log(s);
+        Debug.Log("Length of Playable Cards: " + playableCards.Count);
+    }
+
+
+    // private GameObject isActionCard(GameObject card) {
+    //     Card cardInfo = card.GetComponent<Card>();
+    //     if (cardInfo.GetType() == typeof(ActionCard)) {
+    //         if (((ActionCard)cardInfo).getActionType() == "draw 2") {
+    //             GameController.nextTurn();
+    //             hand.drawCard(handGameObj);
+    //             hand.drawCard(handGameObj);
+    //         } else if (((ActionCard)cardInfo).getActionType() == "skip") {
+    //             GameController.nextTurn();
+    //             GameController.nextTurn();
+    //         }
+    //     }
+    //     return card;
+    // }
 
 
     private GameObject isWildCard(GameObject card) {
@@ -39,6 +94,7 @@ public class AIController : MonoBehaviour
     }
 
     IEnumerator findAllPlayableCards() {
+        playableCards.Clear();
         foreach(GameObject card in hand.getCardsInHand()) {
             if (isPlayable(card)) {
                 playableCards.Add(card);

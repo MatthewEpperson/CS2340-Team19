@@ -8,12 +8,13 @@ public class Hand : MonoBehaviour
     [SerializeField] private GameObject hand;
     [SerializeField] private List<GameObject> cardsInHand;
 
+
     public GameObject getHand() {
         return hand;
     }
 
     public List<GameObject> getCardsInHand() {
-        return this.cardsInHand;
+        return cardsInHand;
     }
 
     public void drawCard(GameObject hand) {
@@ -25,16 +26,11 @@ public class Hand : MonoBehaviour
 
 
     public void playCard(GameObject card, GameObject playArea) {
-        card.transform.SetParent(playArea.transform, false);
-        card.transform.position = new Vector3(playArea.transform.position.x,
-                                                playArea.transform.position.y,
-                                                (PlayAreaDeck.getCardFromPlayArea().transform.position.z) - 1.0f);
-        
-        
-        Debug.Log("Card Pushed");
         cardsInHand.Remove(card);
-        GameController.nextTurn();
+        card.transform.SetParent(playArea.transform, true);
+        StartCoroutine(moveToPlayArea(card, playArea));
         PlayAreaDeck.playAreaStack.Push(card);
+        GameController.nextTurn();
     }
 
 
@@ -56,6 +52,32 @@ public class Hand : MonoBehaviour
                                         hand.transform.position.y,
                                         card.transform.position.z);
         }
+    }
+
+
+    // Card animation to move card to play area
+    IEnumerator moveToPlayArea(GameObject card, GameObject playArea) {
+        Vector3 oldPos = card.transform.position;
+        Vector3 endPos = PlayAreaDeck.getPlayArea().transform.position;
+        endPos = new Vector3(endPos.x, endPos.y, PlayAreaDeck.getCardFromPlayArea().transform.position.z - 1.0f);
+
+        Quaternion rotateEndPos = Quaternion.Euler(new Vector3(card.transform.rotation.x,
+                                            card.transform.rotation.y,
+                                            UnityEngine.Random.Range(-360f, 360f)));
+
+        float rotateSpeed = 500f;
+        float moveSpeed = 1000.0f;
+
+        while (Vector3.Distance(card.transform.position, endPos) > 0.01f) {
+            card.transform.position = Vector3.MoveTowards(card.transform.position,
+                                                            endPos, moveSpeed * Time.deltaTime);
+            card.transform.rotation = Quaternion.RotateTowards(card.transform.rotation, rotateEndPos, rotateSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+
+        card.transform.position = endPos;
+        // GameController.nextTurn();
     }
 
 }
