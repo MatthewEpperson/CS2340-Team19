@@ -108,7 +108,8 @@ public class GoUI : MonoBehaviour
                         stone.transform.position = new Vector3(x,y,0);
                         stone.transform.localScale = new Vector3(1, 1, 1);
                         var imageRenderer = stone.AddComponent<Image> ();
-                        var sp  = Resources.Load<Sprite>("Sprites/go-stones/b");
+                        //var sp  = Resources.Load<Sprite>("Sprites/go-stones/b");
+                        var sp  = Resources.Load<Sprite>("Sprites/go-stones/gostone_b");
                         imageRenderer.sprite = sp;
                     }
                     if(currState[i,j] == -1){
@@ -117,7 +118,8 @@ public class GoUI : MonoBehaviour
                         stone.transform.position = new Vector3(x,y,0);
                         stone.transform.localScale = new Vector3(1, 1, 1);
                         var imageRenderer = stone.AddComponent<Image> ();
-                        var sp  = Resources.Load<Sprite>("Sprites/go-stones/w");
+                        //var sp  = Resources.Load<Sprite>("Sprites/go-stones/w");
+                        var sp  = Resources.Load<Sprite>("Sprites/go-stones/gostone_w");
                         imageRenderer.sprite = sp;
                     }
                 }
