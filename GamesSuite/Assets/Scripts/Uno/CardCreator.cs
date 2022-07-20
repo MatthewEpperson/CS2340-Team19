@@ -21,6 +21,7 @@ public class CardCreator : MonoBehaviour
     public Sprite[] cardSprites;
 
     void Start() {
+        listOfCards.Clear();
         cardSprites = Resources.LoadAll<Sprite>("Sprites/Uno");
     }
 

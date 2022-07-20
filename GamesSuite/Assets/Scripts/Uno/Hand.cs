@@ -8,7 +8,6 @@ public class Hand : MonoBehaviour
     [SerializeField] private GameObject hand;
     [SerializeField] private List<GameObject> cardsInHand;
 
-
     public GameObject getHand() {
         return hand;
     }
@@ -26,14 +25,19 @@ public class Hand : MonoBehaviour
 
 
     public void playCard(GameObject card, GameObject playArea) {
-        cardsInHand.Remove(card);
         card.transform.SetParent(playArea.transform, true);
+        cardsInHand.Remove(card);
         PlayAreaDeck.playAreaStack.Push(card);
 
         if (GameController.currTurn == "Player"
             && card.GetComponent<Card>().GetType() == typeof(WildCard)) {
                 return;
         }
+
+        if ((cardsInHand.Count - 1 <= 1) && GameController.currTurn == "Player") {
+            return;
+        }
+
 
         GameController.nextTurn();
     }
@@ -80,8 +84,15 @@ public class Hand : MonoBehaviour
             yield return null;
         }
 
-
         card.transform.position = endPos;
+
+        if (cardsInHand.Count <= 0) {
+            if (GameController.currTurn == "Player") {
+                GameController.playerWin = true;
+            }
+            UIController uiController = GameObject.Find("UIController").GetComponent<UIController>();
+            uiController.toggleGameOverMenu();
+        }
         // GameController.nextTurn();
     }
 

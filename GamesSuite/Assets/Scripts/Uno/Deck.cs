@@ -11,6 +11,7 @@ public class Deck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        deck.Clear();
         cardCreator.createAllNumberCards();
         cardCreator.createAllActionCards();
         cardCreator.createAllWildCards();

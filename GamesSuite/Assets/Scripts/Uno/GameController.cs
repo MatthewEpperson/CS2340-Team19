@@ -15,17 +15,26 @@ public class GameController : MonoBehaviour
     private static Dictionary<string, GameObject> hands = new Dictionary<string, GameObject>();
     public static string currTurn;
 
+    public static bool playerWin;
+
     // private List<GameObject> hands = new List<GameObject>();
 
     void Start()
     {
+        hands.Clear();
+        
+        playerWin = false;
 
         currTurn = players[0]; // Game always starts with player
 
-        hands.Add(players[0], playerHand);
-        hands.Add(players[1], opponentHand1);
-        hands.Add(players[2], opponentHand2);
-        hands.Add(players[3], opponentHand3);
+        if (hands.Count == 0) {
+            hands.Add(players[0], playerHand);
+            hands.Add(players[1], opponentHand1);
+            hands.Add(players[2], opponentHand2);
+            hands.Add(players[3], opponentHand3);
+        }
+
+        Debug.Log(hands.Count);
 
         StartCoroutine(dealStartCard(PlayAreaDeck.getPlayArea(), PlayAreaDeck.playAreaStack));
 
@@ -41,6 +50,9 @@ public class GameController : MonoBehaviour
     {
         if (CountdownController.currentTime <= 0) {
             Hand hand = hands[currTurn].GetComponent<Hand>();
+            if (hand.getCardsInHand().Count == 1) {
+                hand.drawCard(hands[currTurn]);
+            }
             hand.drawCard(hands[currTurn]);
             nextTurn();
         }

@@ -11,6 +11,7 @@ public class PlayAreaDeck : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playAreaStack.Clear();
         playArea = GameObject.Find("Played Area");
     }
 

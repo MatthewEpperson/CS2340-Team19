@@ -25,11 +25,22 @@ public class PlayerController : MonoBehaviour
         }
 
         if (cardInfo.getColor() == cardOnPlayArea.getColor()) {
-            isActionCard(card);
+            // isActionCard(card);
             isPlayable = true;
         }
 
+        if (isActionCard(card)) {
+            isPlayable = true;
+        }
+
+        if (PlayAreaDeck.getCardFromPlayArea().GetComponent<Card>().GetType() == typeof(ActionCard)) {
+
+        }
+
         if (isPlayable) {
+            if (cardsInHand.Count - 1 == 1) {
+                uIController.activateUnoButton();
+            }
             StartCoroutine(CardUI.moveToPlayArea(card, PlayAreaDeck.getPlayArea()));
             hand.playCard(card, PlayAreaDeck.getPlayArea());
         }
@@ -76,20 +87,22 @@ public class PlayerController : MonoBehaviour
                         return true;
                 }
             }
-
-            if (((ActionCard)cardInfo).getActionType() == "draw 2") {
-                AIController.hands[nextTurn].drawCard(AIController.handObjects[nextTurn]);
-                AIController.hands[nextTurn].drawCard(AIController.handObjects[nextTurn]);
-                GameController.nextTurn();
-            } else if (((ActionCard)cardInfo).getActionType() == "skip") {
-                GameController.nextTurn();
-            } else if (((ActionCard)cardInfo).getActionType() == "reverse") {
-                GameController.isReversed = !GameController.isReversed;
+            
+            if (cardInfo.getColor() == topCardInfo.getColor()) {
+                if (((ActionCard)cardInfo).getActionType() == "draw 2") {
+                    AIController.hands[nextTurn].drawCard(AIController.handObjects[nextTurn]);
+                    AIController.hands[nextTurn].drawCard(AIController.handObjects[nextTurn]);
+                    GameController.nextTurn();
+                } else if (((ActionCard)cardInfo).getActionType() == "skip") {
+                    GameController.nextTurn();
+                } else if (((ActionCard)cardInfo).getActionType() == "reverse") {
+                    GameController.isReversed = !GameController.isReversed;
+                }
+                return true;
             }
-        } else {
             return false;
         }
-        return true;
+        return false;
     }
 
     

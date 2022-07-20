@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UIController : MonoBehaviour
 {
 
     public GameObject pickColorPanel;
+
+    public GameObject unoButton;
 
     private Card card;
 
@@ -15,12 +18,20 @@ public class UIController : MonoBehaviour
     public Image opponent2Bar;
     public Image opponent3Bar;
 
+    public GameObject gameOverMenu;
+
+    public TMP_Text gameOverText;
+
     public static bool colorPanelActive = false;
+    public static bool unoButtonActive = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        colorPanelActive = false;
+        unoButtonActive = false;
         pickColorPanel.SetActive(false);
+        unoButton.SetActive(false);
     }
 
     void Update()
@@ -51,6 +62,22 @@ public class UIController : MonoBehaviour
     }
 
 
+    public void activateUnoButton() {
+        if (unoButton.activeSelf == false) {
+            unoButtonActive = true;
+            unoButton.SetActive(true);
+        }
+    }
+
+    public void deactivateUnoButton() {
+        if (unoButton.activeSelf == true) {
+            GameController.nextTurn();
+            unoButtonActive = false;
+            unoButton.SetActive(false);
+        }
+    }
+
+
     public void activatePickColorUI(Card cardInfo) {
         // pickColorPanel = GameObject.Find("Choose Color Panel");
         card = cardInfo;
@@ -76,6 +103,22 @@ public class UIController : MonoBehaviour
         }
         GameController.nextTurn();
         GameController.nextTurn();
+    }
+
+
+    public void toggleGameOverMenu() {
+
+        gameOverMenu.SetActive(!gameOverMenu.activeSelf);
+        if (gameOverMenu.activeSelf) {
+            if (GameController.playerWin) {
+                gameOverText.text = "You WON!";
+            } else {
+                gameOverText.text = $"You LOST!";
+            }
+
+        }
+        
+        Time.timeScale = 0;
     }
 
 }

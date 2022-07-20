@@ -28,16 +28,23 @@ public class AIController : MonoBehaviour
 
     void Start()
     {
+        hands.Clear();
+        handObjects.Clear();
+        playableCards.Clear();
 
-        hands.Add(GameController.players[0], playerHand);
-        hands.Add(GameController.players[1], oppHand1);
-        hands.Add(GameController.players[2], oppHand2);
-        hands.Add(GameController.players[3], oppHand3);
+        if (hands.Count == 0) {
+            hands.Add(GameController.players[0], playerHand);
+            hands.Add(GameController.players[1], oppHand1);
+            hands.Add(GameController.players[2], oppHand2);
+            hands.Add(GameController.players[3], oppHand3);
+        }
 
-        handObjects.Add(GameController.players[0], playerObj);
-        handObjects.Add(GameController.players[1], opponentObj1);
-        handObjects.Add(GameController.players[2], opponentObj2);
-        handObjects.Add(GameController.players[3], opponentObj3);
+        if (handObjects.Count == 0) {
+            handObjects.Add(GameController.players[0], playerObj);
+            handObjects.Add(GameController.players[1], opponentObj1);
+            handObjects.Add(GameController.players[2], opponentObj2);
+            handObjects.Add(GameController.players[3], opponentObj3);
+        }
         // StartCoroutine(findAllPlayableCards());
     }
 
@@ -70,8 +77,13 @@ public class AIController : MonoBehaviour
 
 
     private GameObject checkCardType(GameObject card) {
-        isActionCard(card);
-        isWildCard(card);
+        if (isActionCard(card)) {
+            return card;
+        }
+
+        if (isWildCard(card)) {
+            return card;
+        }
         return card;
     }
 
@@ -81,13 +93,17 @@ public class AIController : MonoBehaviour
         if (cardInfo.GetType() == typeof(ActionCard)) {
             if (((ActionCard)cardInfo).getActionType() == "draw 2") {
                 string nextTurn = GameController.checkNextTurn(); // This just checks the next turn, it does NOT set the next turn
+                Debug.Log($"Next Turn: {nextTurn}");
                 hands[nextTurn].drawCard(handObjects[nextTurn]);
                 hands[nextTurn].drawCard(handObjects[nextTurn]);
                 GameController.nextTurn();
+                return true;
             } else if (((ActionCard)cardInfo).getActionType() == "skip") {
                 GameController.nextTurn();
+                return true;
             } else if (((ActionCard)cardInfo).getActionType() == "reverse") {
                 GameController.isReversed = !GameController.isReversed;
+                return true;
             }
         } else {
             return false;
