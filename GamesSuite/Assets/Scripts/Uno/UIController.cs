@@ -71,6 +71,7 @@ public class UIController : MonoBehaviour
         card.setColor(color);
         deactivatePickColorUI();
         GameController.nextTurn();
+        GameController.nextTurn();
     }
 
 }

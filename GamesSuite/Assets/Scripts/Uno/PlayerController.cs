@@ -53,9 +53,30 @@ public class PlayerController : MonoBehaviour
 
     private bool isActionCard(GameObject card) {
         Card cardInfo = card.GetComponent<Card>();
+        Card topCardInfo = PlayAreaDeck.getCardFromPlayArea().GetComponent<Card>();
+        string nextTurn = GameController.checkNextTurn(); // This just checks the next turn, it does NOT set the next turn
+
         if (cardInfo.GetType() == typeof(ActionCard)) {
+
+            if (topCardInfo.GetType() == typeof(ActionCard)) {
+                if (((ActionCard)cardInfo).getActionType() == "draw 2"
+                    && (((ActionCard)topCardInfo).getActionType() == "draw 2")) {
+                        AIController.hands[nextTurn].drawCard(AIController.handObjects[nextTurn]);
+                        AIController.hands[nextTurn].drawCard(AIController.handObjects[nextTurn]);
+                        GameController.nextTurn();
+                        return true;
+                } else if (((ActionCard)cardInfo).getActionType() == "skip"
+                            && (((ActionCard)topCardInfo).getActionType() == "skip")) {
+                        GameController.nextTurn();
+                        return true;
+                } else if (((ActionCard)cardInfo).getActionType() == "reverse"
+                            && (((ActionCard)topCardInfo).getActionType() == "reverse")) {
+                        GameController.isReversed = !GameController.isReversed;
+                        return true;
+                }
+            }
+
             if (((ActionCard)cardInfo).getActionType() == "draw 2") {
-                string nextTurn = GameController.checkNextTurn(); // This just checks the next turn, it does NOT set the next turn
                 AIController.hands[nextTurn].drawCard(AIController.handObjects[nextTurn]);
                 AIController.hands[nextTurn].drawCard(AIController.handObjects[nextTurn]);
                 GameController.nextTurn();

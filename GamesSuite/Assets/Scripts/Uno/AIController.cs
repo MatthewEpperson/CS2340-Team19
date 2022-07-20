@@ -122,39 +122,20 @@ public class AIController : MonoBehaviour
     IEnumerator findAllPlayableCards() {
         playableCards.Clear();
         foreach(GameObject card in hand.getCardsInHand()) {
-            if (isPlayable(card)) {
+            if (GameController.isPlayable(card)) {
                 playableCards.Add(card);
             }
         }
         if (playableCards.Count == 0) {
             hand.drawCard(handGameObj);
             GameObject newCard = hand.getCardsInHand()[hand.getCardsInHand().Count - 1];
-            if (isPlayable(newCard)) {
+            if (GameController.isPlayable(newCard)) {
                 playableCards.Add(newCard);
             } else {
                 GameController.nextTurn();
             }
         }
         yield return null;
-    }
-
-
-    private bool isPlayable(GameObject card) {
-        Card cardInfo = card.GetComponent<Card>();
-        Card cardOnPlayArea = PlayAreaDeck.getCardFromPlayArea().GetComponent<Card>();
-
-        if (cardInfo.getColor() == cardOnPlayArea.getColor()) {
-                return true;
-        } else if (cardInfo.GetType() == typeof(NumberCard) &&
-                    cardOnPlayArea.GetType() == typeof(NumberCard)) {
-            if (((NumberCard)cardInfo).getNumber() == ((NumberCard)cardOnPlayArea).getNumber()) {
-                return true;
-            }
-        } else if (cardInfo.GetType() == typeof(WildCard)) {
-            return true;
-        }
-
-        return false;
     }
 
 }

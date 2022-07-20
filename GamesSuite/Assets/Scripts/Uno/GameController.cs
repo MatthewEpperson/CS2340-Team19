@@ -61,6 +61,26 @@ public class GameController : MonoBehaviour
 
 
 
+    public static bool isPlayable(GameObject card) {
+        Card cardInfo = card.GetComponent<Card>();
+        Card cardOnPlayArea = PlayAreaDeck.getCardFromPlayArea().GetComponent<Card>();
+
+        if (cardInfo.getColor() == cardOnPlayArea.getColor()) {
+                return true;
+        } else if (cardInfo.GetType() == typeof(NumberCard) &&
+                    cardOnPlayArea.GetType() == typeof(NumberCard)) {
+            if (((NumberCard)cardInfo).getNumber() == ((NumberCard)cardOnPlayArea).getNumber()) {
+                return true;
+            }
+        } else if (cardInfo.GetType() == typeof(WildCard)) {
+            return true;
+        }
+
+        return false;
+    }
+
+
+
     public static bool isReversed = false;
 
     // THIS SETS THE NEXT TURN
@@ -99,7 +119,7 @@ public class GameController : MonoBehaviour
                 indexOfTurn++;
             }
         } else {
-            if (indexOfTurn < 0) {
+            if (indexOfTurn - 1 < 0) {
                 indexOfTurn = players.Length - 1;
             } else {
                 indexOfTurn--;
