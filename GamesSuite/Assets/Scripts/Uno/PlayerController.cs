@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
         cardsInHand = hand.getCardsInHand();
     }
 
+
     public void onCardClick(GameObject card) {
         Card cardInfo = card.GetComponent<Card>();
         Card cardOnPlayArea = PlayAreaDeck.getCardFromPlayArea().GetComponent<Card>();

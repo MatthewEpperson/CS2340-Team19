@@ -70,6 +70,10 @@ public class UIController : MonoBehaviour
     public void setCardColor(string color) {
         card.setColor(color);
         deactivatePickColorUI();
+        if (PlayAreaDeck.getCardFromPlayArea().GetComponent<WildCard>().getWildType() != "draw 4 wild") {
+            GameController.nextTurn();
+            return;
+        }
         GameController.nextTurn();
         GameController.nextTurn();
     }

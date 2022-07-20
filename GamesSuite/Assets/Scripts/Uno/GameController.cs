@@ -12,23 +12,24 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameObject playerHand;
 
     public static string[] players = {"Player", "Opponent 1", "Opponent 2", "Opponent 3"};
+    private static Dictionary<string, GameObject> hands = new Dictionary<string, GameObject>();
     public static string currTurn;
 
-    private List<GameObject> hands = new List<GameObject>();
+    // private List<GameObject> hands = new List<GameObject>();
 
     void Start()
     {
 
         currTurn = players[0]; // Game always starts with player
 
-        hands.Add(playerHand);
-        hands.Add(opponentHand1);
-        hands.Add(opponentHand2);
-        hands.Add(opponentHand3);
+        hands.Add(players[0], playerHand);
+        hands.Add(players[1], opponentHand1);
+        hands.Add(players[2], opponentHand2);
+        hands.Add(players[3], opponentHand3);
 
         StartCoroutine(dealStartCard(PlayAreaDeck.getPlayArea(), PlayAreaDeck.playAreaStack));
 
-        foreach (GameObject hand in hands) {
+        foreach (GameObject hand in hands.Values) {
             Hand currHand = hand.GetComponent<Hand>();
             StartCoroutine(dealInitialCards(currHand.getCardsInHand(), currHand.getHand()));
         }
@@ -38,6 +39,11 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (CountdownController.currentTime <= 0) {
+            Hand hand = hands[currTurn].GetComponent<Hand>();
+            hand.drawCard(hands[currTurn]);
+            nextTurn();
+        }
         Debug.Log(currTurn);
     }
 
