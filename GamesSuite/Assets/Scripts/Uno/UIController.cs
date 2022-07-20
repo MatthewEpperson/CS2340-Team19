@@ -15,6 +15,8 @@ public class UIController : MonoBehaviour
     public Image opponent2Bar;
     public Image opponent3Bar;
 
+    public static bool colorPanelActive = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,12 +55,14 @@ public class UIController : MonoBehaviour
         // pickColorPanel = GameObject.Find("Choose Color Panel");
         card = cardInfo;
         if (pickColorPanel.activeSelf == false) {
+            colorPanelActive = true;
             pickColorPanel.SetActive(true);
         }
     }
 
     public void deactivatePickColorUI() {
         if (pickColorPanel.activeSelf == true) {
+            colorPanelActive = false;
             pickColorPanel.SetActive(false);
         }
     }
@@ -66,6 +70,7 @@ public class UIController : MonoBehaviour
     public void setCardColor(string color) {
         card.setColor(color);
         deactivatePickColorUI();
+        GameController.nextTurn();
     }
 
 }

@@ -5,20 +5,39 @@ using UnityEngine;
 public class AIController : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] GameObject playerObj;
     [SerializeField] GameObject opponentObj1;
     [SerializeField] GameObject opponentObj2;
     [SerializeField] GameObject opponentObj3;
+
+
     [SerializeField] Hand oppHand1;
     [SerializeField] Hand oppHand2;
     [SerializeField] Hand oppHand3;
+    [SerializeField] Hand playerHand;
+
+
     [SerializeField] GameController gameController;
     private Hand hand;
     private GameObject handGameObj;
     private List<GameObject> playableCards = new List<GameObject>();
 
+    public static Dictionary<string, Hand> hands = new Dictionary<string, Hand>();
+    public static Dictionary<string, GameObject> handObjects = new Dictionary<string, GameObject>();
+
 
     void Start()
     {
+
+        hands.Add(GameController.players[0], playerHand);
+        hands.Add(GameController.players[1], oppHand1);
+        hands.Add(GameController.players[2], oppHand2);
+        hands.Add(GameController.players[3], oppHand3);
+
+        handObjects.Add(GameController.players[0], playerObj);
+        handObjects.Add(GameController.players[1], opponentObj1);
+        handObjects.Add(GameController.players[2], opponentObj2);
+        handObjects.Add(GameController.players[3], opponentObj3);
         // StartCoroutine(findAllPlayableCards());
     }
 
@@ -39,59 +58,66 @@ public class AIController : MonoBehaviour
             handGameObj = opponentObj3;
         }
 
-        Debug.Log("Opponent 1: " + oppHand1.getCardsInHand().Count);
-        Debug.Log("Opponent 2: " + oppHand2.getCardsInHand().Count);
-        Debug.Log("Opponent 3: " + oppHand3.getCardsInHand().Count);
-
         if (GameController.currTurn != "Player") {
-            if (CountdownController.currentTime >= 30) {
-                StartCoroutine(findAllPlayableCards());
-            }
+            StartCoroutine(findAllPlayableCards());
             int randNum = Random.Range(0, playableCards.Count);
             if (CountdownController.currentTime <= CountdownController.aiTimer) {
-                hand.playCard(isWildCard(playableCards[randNum]), PlayAreaDeck.getPlayArea());
+                StartCoroutine(CardUI.moveToPlayArea(playableCards[randNum], PlayAreaDeck.getPlayArea()));
+                hand.playCard(checkCardType(playableCards[randNum]), PlayAreaDeck.getPlayArea());
             }
-                // Debug.Log($"Current Playable Cards: {playableCards.Count}");
         }
-
-        // Debug.Log($"Top of Stack: {PlayAreaDeck.getCardFromPlayArea().gameObject.name}");
-    }
-
-    private void printList() {
-        // string s = "";
-        // foreach (GameObject card in playableCards) {
-        //     s += card.gameObject.name + " | ";
-        // }
-        // Debug.Log(s);
-        Debug.Log("Length of Playable Cards: " + playableCards.Count);
     }
 
 
-    // private GameObject isActionCard(GameObject card) {
-    //     Card cardInfo = card.GetComponent<Card>();
-    //     if (cardInfo.GetType() == typeof(ActionCard)) {
-    //         if (((ActionCard)cardInfo).getActionType() == "draw 2") {
-    //             GameController.nextTurn();
-    //             hand.drawCard(handGameObj);
-    //             hand.drawCard(handGameObj);
-    //         } else if (((ActionCard)cardInfo).getActionType() == "skip") {
-    //             GameController.nextTurn();
-    //             GameController.nextTurn();
-    //         }
-    //     }
-    //     return card;
-    // }
-
-
-    private GameObject isWildCard(GameObject card) {
-        Card cardInfo = card.GetComponent<Card>();
-        if (cardInfo.GetType() == typeof(WildCard)) {
-            int randNum = Random.Range(0, CardCreator.colors.Length);
-            cardInfo.setColor(CardCreator.colors[randNum]);
-        }
-
+    private GameObject checkCardType(GameObject card) {
+        isActionCard(card);
+        isWildCard(card);
         return card;
     }
+
+
+    private bool isActionCard(GameObject card) {
+        Card cardInfo = card.GetComponent<Card>();
+        if (cardInfo.GetType() == typeof(ActionCard)) {
+            if (((ActionCard)cardInfo).getActionType() == "draw 2") {
+                string nextTurn = GameController.checkNextTurn(); // This just checks the next turn, it does NOT set the next turn
+                hands[nextTurn].drawCard(handObjects[nextTurn]);
+                hands[nextTurn].drawCard(handObjects[nextTurn]);
+                GameController.nextTurn();
+            } else if (((ActionCard)cardInfo).getActionType() == "skip") {
+                GameController.nextTurn();
+            } else if (((ActionCard)cardInfo).getActionType() == "reverse") {
+                GameController.isReversed = !GameController.isReversed;
+            }
+        } else {
+            return false;
+        }
+        return true;
+    }
+
+
+    private bool isWildCard(GameObject card) {
+        Card cardInfo = card.GetComponent<Card>();
+        
+        if (cardInfo.GetType() == typeof(WildCard)) {
+            
+            int randNum = Random.Range(0, CardCreator.colors.Length);
+            cardInfo.setColor(CardCreator.colors[randNum]);
+            
+            if (((WildCard)cardInfo).getWildType() == "draw 4 wild") {
+                string nextTurn = GameController.checkNextTurn(); // This just checks the next turn, it does NOT set the next turn
+                for (int i = 0; i < 4; i++) {
+                    hands[nextTurn].drawCard(handObjects[nextTurn]);
+                }
+                GameController.nextTurn();
+            }
+        } else {
+            return false;
+        }
+
+        return true;
+    }
+
 
     IEnumerator findAllPlayableCards() {
         playableCards.Clear();
@@ -101,12 +127,12 @@ public class AIController : MonoBehaviour
             }
         }
         if (playableCards.Count == 0) {
-            while (playableCards.Count == 0) {
-                hand.drawCard(handGameObj);
-                GameObject newCard = hand.getCardsInHand()[hand.getCardsInHand().Count - 1];
-                if (isPlayable(newCard)) {
-                    playableCards.Add(newCard);
-                }
+            hand.drawCard(handGameObj);
+            GameObject newCard = hand.getCardsInHand()[hand.getCardsInHand().Count - 1];
+            if (isPlayable(newCard)) {
+                playableCards.Add(newCard);
+            } else {
+                GameController.nextTurn();
             }
         }
         yield return null;

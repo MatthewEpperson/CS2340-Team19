@@ -60,12 +60,25 @@ public class GameController : MonoBehaviour
     }
 
 
+
+    public static bool isReversed = false;
+
+    // THIS SETS THE NEXT TURN
     public static void nextTurn() {
         int indexOfTurn = Array.IndexOf(players, currTurn);
-        if (indexOfTurn >= players.Length - 1) {
-            indexOfTurn = 0;
+        
+        if (isReversed == false) {
+            if (indexOfTurn >= players.Length - 1) {
+                indexOfTurn = 0;
+            } else {
+                indexOfTurn++;
+            }
         } else {
-            indexOfTurn++;
+            if (indexOfTurn - 1 < 0) {
+                indexOfTurn = players.Length - 1;
+            } else {
+                indexOfTurn--;
+            }
         }
 
         if (indexOfTurn != 0) {
@@ -74,4 +87,26 @@ public class GameController : MonoBehaviour
         currTurn = players[indexOfTurn];
         CountdownController.resetTimer();
     }
+
+
+    // THIS ONLY CHECKS WHAT THE NEXT TURN IS, IT DOES NOT SET THE NEXT TURN
+    public static string checkNextTurn() {
+        int indexOfTurn = Array.IndexOf(players, currTurn);
+        if (isReversed == false) {
+            if (indexOfTurn >= players.Length - 1) {
+                indexOfTurn = 0;
+            } else {
+                indexOfTurn++;
+            }
+        } else {
+            if (indexOfTurn < 0) {
+                indexOfTurn = players.Length - 1;
+            } else {
+                indexOfTurn--;
+            }
+        }
+
+        return players[indexOfTurn];
+    }
+
 }
