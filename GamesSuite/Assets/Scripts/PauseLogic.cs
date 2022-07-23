@@ -5,6 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PauseLogic : MonoBehaviour
 {
+
+    Scene scene;
+    string sceneName;
+
+    void Start() {
+        scene = SceneManager.GetActiveScene();
+        sceneName = scene.name;
+    }
     public void pauseGame() {
         Debug.Log("Game is Paused");
         Time.timeScale = 0;
@@ -21,6 +29,10 @@ public class PauseLogic : MonoBehaviour
 
     public void restartGame() {
         Time.timeScale = 1;
+<<<<<<< HEAD
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+=======
+        SceneManager.LoadScene(sceneName);
+>>>>>>> Uno
     }
 }

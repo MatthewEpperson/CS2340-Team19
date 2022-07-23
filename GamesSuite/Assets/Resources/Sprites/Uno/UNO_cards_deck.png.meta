@@ -1,0 +1,1638 @@
+fileFormatVersion: 2
+guid: fbc52e47dba560b45a462e1322b9ee13
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: white card 6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6003
+        width: 1001
+        height: 1501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4efaef1350100054c88ef92f21a0f422
+      internalID: 957594300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white card 5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 6003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59f0fc253f7e50e4a9940c4c47c49515
+      internalID: -235945206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white card 4
+      rect:
+        serializedVersion: 2
+        x: 2013
+        y: 6003
+        width: 1001
+        height: 1501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eea3826d7ac35c4ebc6fda645e3f353
+      internalID: 1488978812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white card 3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 6003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a79d6675c6331624aa29749485f25191
+      internalID: -1867986101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white card 2
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 6003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e9f445a6866d4649bd1ea491bf279b5
+      internalID: -291299848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white card 1
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 6003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2bb5976addb60143afc41290aa5ac47
+      internalID: 1190287084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white card 0
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 6003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d38ee9b223034e418dec9e120a04841
+      internalID: -412193398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white draw 2 card
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 6003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e47174135535b45ab358e2167b462f
+      internalID: 1089316629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white reverse card
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 6003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45c156f4bcaa9324784bd1d28a2912fe
+      internalID: -418091646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white skip card
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 6003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e73cb7719371ef04eab4cb1b1308eb9c
+      internalID: -1186546442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white card 9
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 6003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e7e49da15b889c498a74328c017bdcb
+      internalID: 1268505321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white card 8
+      rect:
+        serializedVersion: 2
+        x: 11000
+        y: 6003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acf3233808019b745a55b7278f57debb
+      internalID: -265470516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white card 7
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 6003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3462f5ae45666f243ba8946d7e66dd20
+      internalID: 964104558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: color wild card
+      rect:
+        serializedVersion: 2
+        x: 12987
+        y: 6003
+        width: 1001
+        height: 1501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b8cf80d7b2b7184cb36514fc76e14c1
+      internalID: -107354810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold card 6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d73af23f3614794b8e6afc0e66b20cd
+      internalID: 1973038451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold card 5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 4503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0a3c88696fc96458d4e80323df8e2f
+      internalID: -1680111281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold card 4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 4503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51b7dbe7acabb954abb81111691fe706
+      internalID: -370631516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold card 3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 4503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b89efe9daa6b544be9f9c4d23ceb4f
+      internalID: -1545567566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold card 2
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 4503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf9b7a979c6d994c94aa6830de3b4ae
+      internalID: 1057831810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold card 1
+      rect:
+        serializedVersion: 2
+        x: 5013
+        y: 4516
+        width: 1001
+        height: 1501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff381afd6abd2ea47a117156dd5bff1f
+      internalID: 428939534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold card 0
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 4503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 135ce48622808c44d8110c667e34334d
+      internalID: -1266514787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold draw 2 card
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 4503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f67f0de0c3b013843b164780f2626f49
+      internalID: -1708455935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold reverse card
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 4503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 280c294c1728c4940ba6fbb9fe0daeb5
+      internalID: 1661091435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold skip card
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 4516
+        width: 1001
+        height: 1501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b563fd4a50e359d48adc7195ecd25fe9
+      internalID: 496564349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold card 9
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 4503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47b156680b1d918489c0fad148adbde0
+      internalID: -507052191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold card 8
+      rect:
+        serializedVersion: 2
+        x: 11000
+        y: 4503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d05d5aa6833d31468eff7f93e82b3ae
+      internalID: -204947048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold card 7
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 4503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec90f647d7d3e4e4faa7888a55a4f11d
+      internalID: 1026874684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UNO_cards_deck_27
+      rect:
+        serializedVersion: 2
+        x: 13000
+        y: 4503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95dacec3341ee884491be006def14742
+      internalID: 1602968767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy card 6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2533bfab60812649a24e17ac3ca6b0a
+      internalID: 1777267965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy card 5
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 3003
+        width: 1001
+        height: 1501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d912e1ca10b24cc43afc6292616b8332
+      internalID: 1776845438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy card 4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 3003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da83b1be642fd8b42ab4f0da6a75be47
+      internalID: -835873173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy card 3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 3003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7f16612f8f95184b8ac2938d905b58b
+      internalID: 335879121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy card 2
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 3003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e713d023ae255ce44b51110fb238d69b
+      internalID: 2082045615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy card 1
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 3003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c557ae70bd6bde46995d4fc6cd7b139
+      internalID: 453476946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy card 0
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 3003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e00d1870b9c2eca42976bf27c5dcf1db
+      internalID: 914974352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy draw 2 card
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 3003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 968c9a19cfcbc86458536c3e2454ab25
+      internalID: -1562952349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy reverse card
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 3003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15fa36a3cf629cd4286fad867fd128e7
+      internalID: -1591884096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy skip card
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 3003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 234475dd32c55894386df1ad9cef4c1a
+      internalID: 1082206756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy card 9
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 3003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 116371826442c754792c9fe8a8c7d73c
+      internalID: 2136197718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy card 8
+      rect:
+        serializedVersion: 2
+        x: 11013
+        y: 3003
+        width: 1001
+        height: 1501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3926c9869f0764c4faa8f8251f47a5cc
+      internalID: -1025381974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy card 7
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 3003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1f1bfcb7b7c94743b2a3d54741bcdc2
+      internalID: -568633883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: draw 4 wild card
+      rect:
+        serializedVersion: 2
+        x: 13000
+        y: 3003.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6277d331713667840a329373b085361b
+      internalID: -1765031081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow card 6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e11c6ac5e374b7f4a8be5f4287edeb79
+      internalID: 1756575749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow card 5
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efde481a542e5dd46859cff3999600ad
+      internalID: -2058404950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow card 4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f573d25d8777524c99c7aace41e6b88
+      internalID: -1407707670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow card 3
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e6d888015cc57445ab6af0b9db4a9c3
+      internalID: 2111202729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow card 2
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0810d3d31a9acf24cabb888f0b4c5627
+      internalID: 126483320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow card 1
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a89ac8b71b3c945b2fd7e9156326c4
+      internalID: -1557710221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow card 0
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25f094275ed1b054ebc42c69b4c5767e
+      internalID: -352721599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow draw 2 card
+      rect:
+        serializedVersion: 2
+        x: 7000
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6974c4ae07401534a91d9adcc5777f25
+      internalID: -1110134081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow reverse card
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01aca8fe1b43bfe46959cbe724cd8ac0
+      internalID: 348612583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow skip card
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f75c8bc6583223b46a4d467460041699
+      internalID: -422058518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow card 9
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 1516
+        width: 1001
+        height: 1501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 323a6ccbf5a93bf4a9080f3aa48073c9
+      internalID: 872999869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow card 8
+      rect:
+        serializedVersion: 2
+        x: 11000
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7db73bdf09af895448ea895a8bc5c784
+      internalID: 865501532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow card 7
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f68ce1fb38b0db04588bc451ece6adaf
+      internalID: 934851731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UNO_cards_deck_55
+      rect:
+        serializedVersion: 2
+        x: 13000
+        y: 1503.2
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b1a1ddc5331e194e842a19bac4cfb77
+      internalID: -481410617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white wild card
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac10de4e510acee4a8b2a652fa5aaea3
+      internalID: -1226535742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold wild card
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5393cb5792b6a34fa0a843e1ed8bdd6
+      internalID: -579430281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy wild card
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef28ea286b1302944b9338bd4113bd56
+      internalID: -68329408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow wild card
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e915992bee7b803498e773ea85efc530
+      internalID: 488397973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: white draw 4 card
+      rect:
+        serializedVersion: 2
+        x: 4000
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af04b15105f764e439c80633b5a67468
+      internalID: -1767375602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: gold draw 4 card
+      rect:
+        serializedVersion: 2
+        x: 5000
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7628b2a994e7fdb4fb0b22d41ee743ab
+      internalID: 933055248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: navy draw 4 card
+      rect:
+        serializedVersion: 2
+        x: 6000
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bff9d99d6506e64486650ee94a9fc31
+      internalID: 814029072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yellow draw 4 card
+      rect:
+        serializedVersion: 2
+        x: 7013
+        y: 3
+        width: 1001
+        height: 1501
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f49c136d59e917f4096c94f1f16ed5e1
+      internalID: -1328543959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UNO_cards_deck_64
+      rect:
+        serializedVersion: 2
+        x: 8000
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e9dfc8a51b631439ea67e8241756e4
+      internalID: -1714354729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UNO_cards_deck_65
+      rect:
+        serializedVersion: 2
+        x: 9000
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b104dbbbfa33a5344937fdab1ade1192
+      internalID: -179896715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UNO_cards_deck_66
+      rect:
+        serializedVersion: 2
+        x: 10000
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e7d1b44553d774191c49ea27514a2a
+      internalID: 1672519013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UNO_cards_deck_67
+      rect:
+        serializedVersion: 2
+        x: 11000
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc3fb6bb44a1023488cae1111367c215
+      internalID: 856342982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UNO_cards_deck_68
+      rect:
+        serializedVersion: 2
+        x: 12000
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4c70d9a84f0d0345b505c627b0f947b
+      internalID: 822731297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UNO_cards_deck_69
+      rect:
+        serializedVersion: 2
+        x: 13000
+        y: 3.1999512
+        width: 1000.7143
+        height: 1500.8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a4b6187e1293c42a9d5aadb76f7ff6
+      internalID: 142044438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      yellow skip card: -422058518
+      gold card 8: -204947048
+      UNO_cards_deck_67: 856342982
+      navy reverse card: -1591884096
+      gold draw 4 card: 933055248
+      UNO_cards_deck_68: 822731297
+      color wild card: -107354810
+      yellow draw 2 card: -1110134081
+      white card 2: -291299848
+      gold card 3: -1545567566
+      gold draw 2 card: -1708455935
+      navy card 3: 335879121
+      yellow card 9: 872999869
+      navy card 9: 2136197718
+      gold card 1: 428939534
+      yellow reverse card: 348612583
+      navy card 2: 2082045615
+      gold card 2: 1057831810
+      gold card 0: -1266514787
+      gold card 9: -507052191
+      gold card 5: -1680111281
+      navy card 1: 453476946
+      UNO_cards_deck_55: -481410617
+      draw 4 wild card: -1765031081
+      yellow card 3: 2111202729
+      navy card 6: 1777267965
+      white card 0: -412193398
+      gold card 4: -370631516
+      white card 4: 1488978812
+      yellow card 5: -2058404950
+      yellow card 0: -352721599
+      white card 6: 957594300
+      white card 5: -235945206
+      yellow card 6: 1756575749
+      white draw 2 card: 1089316629
+      gold card 6: 1973038451
+      white wild card: -1226535742
+      white card 3: -1867986101
+      navy card 4: -835873173
+      yellow card 7: 934851731
+      white draw 4 card: -1767375602
+      white reverse card: -418091646
+      UNO_cards_deck_27: 1602968767
+      gold card 7: 1026874684
+      yellow draw 4 card: -1328543959
+      yellow card 1: -1557710221
+      UNO_cards_deck_69: 142044438
+      white skip card: -1186546442
+      gold skip card: 496564349
+      UNO_cards_deck_64: -1714354729
+      yellow card 4: -1407707670
+      navy card 5: 1776845438
+      white card 8: -265470516
+      gold wild card: -579430281
+      navy skip card: 1082206756
+      UNO_cards_deck_66: 1672519013
+      UNO_cards_deck_65: -179896715
+      yellow card 8: 865501532
+      navy wild card: -68329408
+      white card 9: 1268505321
+      white card 1: 1190287084
+      gold reverse card: 1661091435
+      white card 7: 964104558
+      navy card 7: -568633883
+      navy card 0: 914974352
+      navy draw 2 card: -1562952349
+      navy card 8: -1025381974
+      navy draw 4 card: 814029072
+      yellow card 2: 126483320
+      yellow wild card: 488397973
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
