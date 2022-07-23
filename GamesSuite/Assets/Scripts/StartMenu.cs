@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class StartMenu : MonoBehaviour
 {
     private TMP_Text currGame;
-    private string[] gamesList = {"Uno", "Wordle", "Go"};
+    private string[] gamesList = {"UNO", "WORDLE", "GO"};
     private int gamesListIndex = 0;
     void Start() {
         currGame = GameObject.Find("ChangingPanel/ChooseGame/SelectedGame").GetComponent<TMP_Text>();
