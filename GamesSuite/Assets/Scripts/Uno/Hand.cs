@@ -8,6 +8,14 @@ public class Hand : MonoBehaviour
     [SerializeField] private GameObject hand;
     [SerializeField] private List<GameObject> cardsInHand;
 
+
+    UnoSound unoSound;
+
+    void Awake()
+    {
+        unoSound = GameObject.Find("SoundController").GetComponent<UnoSound>();
+    }
+
     public GameObject getHand() {
         return hand;
     }
@@ -29,10 +37,13 @@ public class Hand : MonoBehaviour
     }
 
 
+
     public void playCard(GameObject card, GameObject playArea) {
         card.transform.SetParent(playArea.transform, true);
         cardsInHand.Remove(card);
         PlayAreaDeck.playAreaStack.Push(card);
+
+        unoSound.playCardFlipSound();
 
         if (GameController.currTurn == "Player"
             && card.GetComponent<Card>().GetType() == typeof(WildCard)) {
@@ -48,7 +59,6 @@ public class Hand : MonoBehaviour
             uiController.toggleGameOverMenu();
             }
         }
-
 
         GameController.nextTurn();
     }
