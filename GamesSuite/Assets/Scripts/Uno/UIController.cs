@@ -37,25 +37,25 @@ public class UIController : MonoBehaviour
     void Update()
     {
         if (GameController.currTurn == "Player") {
-            playerBar.color = new Color32(255, 255, 0, 255);
+            playerBar.color = new Color32(255, 100, 15, 255);
         } else {
             playerBar.color = new Color32(100, 100, 100, 255);
         }
 
         if (GameController.currTurn == "Opponent 1") {
-            opponent1Bar.color = new Color32(255, 255, 0, 255);
+            opponent1Bar.color = new Color32(255, 100, 15, 255);
         } else {
             opponent1Bar.color = new Color32(100, 100, 100, 255);
         }
 
         if (GameController.currTurn == "Opponent 2") {
-            opponent2Bar.color = new Color32(255, 255, 0, 255);
+            opponent2Bar.color = new Color32(255, 100, 15, 255);
         } else {
             opponent2Bar.color = new Color32(100, 100, 100, 255);
         }
 
         if (GameController.currTurn == "Opponent 3") {
-            opponent3Bar.color = new Color32(255, 255, 0, 255);
+            opponent3Bar.color = new Color32(255, 100, 15, 255);
         } else {
             opponent3Bar.color = new Color32(100, 100, 100, 255);
         }
