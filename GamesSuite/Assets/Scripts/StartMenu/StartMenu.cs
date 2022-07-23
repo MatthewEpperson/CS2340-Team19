@@ -7,11 +7,30 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    private TMP_Text currGame;
+    public TMP_Text currGame;
     private string[] gamesList = {"Uno", "Wordle", "Go"};
+
+    private string[] gamesImages = {"unocover", "wordlecover", "gocover"};
+
+    private Sprite[] images;
     private int gamesListIndex = 0;
+
+    public GameObject placeHolderBox;
+
+    private Sprite gameImage;
+
+    public Image placeHolderImage;
     void Start() {
-        currGame = GameObject.Find("ChangingPanel/ChooseGame/SelectedGame").GetComponent<TMP_Text>();
+        images = Resources.LoadAll<Sprite>("Sprites/Main Menu Sprites");
+        placeHolderImage = placeHolderBox.GetComponent<Image>();
+        foreach (Sprite sprite in images) {
+            if (sprite.name == "unocover") {
+                gameImage = sprite;
+                break;
+            }
+        }
+
+        placeHolderImage.sprite = gameImage;
     }
 
     public void quitGame() {
@@ -37,6 +56,15 @@ public class StartMenu : MonoBehaviour
         } else {
             gamesListIndex++;
         }
+
+        foreach (Sprite sprite in images) {
+            if (sprite.name == gamesImages[gamesListIndex]) {
+                gameImage = sprite;
+                break;
+            }
+        }
+
+        placeHolderImage.sprite = gameImage;
         currGame.text = gamesList[gamesListIndex];
     }
 
@@ -47,6 +75,15 @@ public class StartMenu : MonoBehaviour
             gamesListIndex--;
         }
         currGame.text = gamesList[gamesListIndex];
+
+        foreach (Sprite sprite in images) {
+            if (sprite.name == gamesImages[gamesListIndex]) {
+                gameImage = sprite;
+                break;
+            }
+        }
+
+        placeHolderImage.sprite = gameImage;
     }
 
     public void playGame() {
