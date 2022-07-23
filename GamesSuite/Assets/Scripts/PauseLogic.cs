@@ -29,10 +29,6 @@ public class PauseLogic : MonoBehaviour
 
     public void restartGame() {
         Time.timeScale = 1;
-<<<<<<< HEAD
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-=======
         SceneManager.LoadScene(sceneName);
->>>>>>> Uno
     }
 }
