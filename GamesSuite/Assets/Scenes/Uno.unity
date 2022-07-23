@@ -1451,7 +1451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9, y: -106}
+  m_AnchoredPosition: {x: -9, y: -117}
   m_SizeDelta: {x: 325.2867, y: 25.586}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &502735447
@@ -3033,9 +3033,19 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 2547147593429148015, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_text
+      value: choose yellow
+      objectReference: {fileID: 0}
     - target: {fileID: 2547147593429148017, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147593882364873, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_text
+      value: 'Choose White
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 2547147593882364875, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3053,6 +3063,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UIController, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 2547147594006095548, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: yellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594006095549, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594006095549, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594006095549, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594006095550, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Name
+      value: yellow
+      objectReference: {fileID: 0}
     - target: {fileID: 2547147594006095550, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -3068,6 +3098,26 @@ PrefabInstance:
     - target: {fileID: 2547147594270423756, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UIController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594270423756, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: navy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594270423757, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.34117648
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594270423757, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.18823531
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594270423757, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594270423758, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Name
+      value: choose navy
       objectReference: {fileID: 0}
     - target: {fileID: 2547147594270423758, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3085,9 +3135,33 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UIController, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 2547147594307440826, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: gold
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594307440827, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594307440827, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.57254905
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594307440827, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6431373
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594307440828, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Name
+      value: gold
+      objectReference: {fileID: 0}
     - target: {fileID: 2547147594307440828, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594370043287, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_text
+      value: choose gold
       objectReference: {fileID: 0}
     - target: {fileID: 2547147594370043289, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3185,6 +3259,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2547147594728858390, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8235295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594728858390, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8470589
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594728858390, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8313726
+      objectReference: {fileID: 0}
     - target: {fileID: 2547147594728858393, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3197,9 +3283,21 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UIController, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 2547147594728858393, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: white
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594728858395, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_Name
+      value: white
+      objectReference: {fileID: 0}
     - target: {fileID: 2547147594728858395, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547147594866298927, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
+      propertyPath: m_text
+      value: Choose navy
       objectReference: {fileID: 0}
     - target: {fileID: 2547147594866298929, guid: dcacb3a94cb6d7c47b2febcfb0722c2a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4823,7 +4921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8380614619556883737, guid: b48e6c26514846045b93f2d16e841e5b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -827
+      value: -800
       objectReference: {fileID: 0}
     - target: {fileID: 8380614619556883737, guid: b48e6c26514846045b93f2d16e841e5b, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -5063,7 +5161,6 @@ MonoBehaviour:
   actionCard: {fileID: 5437922025103237034, guid: 38013681d656d534baf85a4c124244df, type: 3}
   numberCard: {fileID: 5437922025103237034, guid: a3d2cbcb2af119f4793f43ecf5be13fd, type: 3}
   wildCard: {fileID: 5437922025103237034, guid: e3508fb9a4fc14e4f952684097ec33e0, type: 3}
-  cardSprites: []
 --- !u!114 &1775791361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5557,7 +5654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -729.8, y: 55.208}
+  m_AnchoredPosition: {x: 521.04, y: 295}
   m_SizeDelta: {x: 147.4717, y: 210.4169}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1992835604

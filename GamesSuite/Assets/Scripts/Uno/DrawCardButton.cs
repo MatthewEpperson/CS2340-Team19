@@ -15,6 +15,7 @@ public class DrawCardButton : MonoBehaviour
             playerHand.drawCard(playerHandObj);
             GameObject newCard = playerHand.getCardsInHand()[playerHand.getCardsInHand().Count - 1];
             if (!GameController.isPlayable(newCard)) {
+                StartCoroutine(CardUI.moveToHand(newCard, playerHandObj));
                 GameController.nextTurn();
             } else {
                 if (newCard.GetComponent<Card>().GetType() == typeof(WildCard)) {

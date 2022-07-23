@@ -13,16 +13,16 @@ public class CardCreator : MonoBehaviour
 
     public static List<GameObject> listOfCards = new List<GameObject>();
 
-    public static string[] colors = {"red", "yellow", "blue", "green"};
+    public static string[] colors = {"white", "yellow", "navy", "gold"};
 
     public static string[] actionTypes = {"draw 2", "reverse", "skip"};
     public static string[] wildTypes = {"draw 4 wild", "color wild"};
 
-    public Sprite[] cardSprites;
+    public static Sprite[] cardSprites;
 
     void Start() {
         listOfCards.Clear();
-        cardSprites = Resources.LoadAll<Sprite>("Sprites/Uno");
+        cardSprites = Resources.LoadAll<Sprite>("Sprites/Uno/UNO_cards_deck");
     }
 
     public void createNumberCard(int number, string color, Transform parent) {

@@ -97,10 +97,29 @@ public class UIController : MonoBehaviour
     public void setCardColor(string color) {
         card.setColor(color);
         deactivatePickColorUI();
+        Sprite cardSprite = null;
+
         if (PlayAreaDeck.getCardFromPlayArea().GetComponent<WildCard>().getWildType() != "draw 4 wild") {
+            foreach (Sprite sprite in CardCreator.cardSprites) {
+                if (sprite.name == $"{color} wild card") {
+                    cardSprite = sprite;
+                    break;
+                }
+            }
+            card.GetComponent<SpriteRenderer>().sprite = cardSprite;
             GameController.nextTurn();
             return;
         }
+
+
+        foreach (Sprite sprite in CardCreator.cardSprites) {
+            if (sprite.name == $"{color} draw 4 card") {
+                cardSprite = sprite;
+                break;
+            }
+        }
+
+        card.GetComponent<SpriteRenderer>().sprite = cardSprite;
         GameController.nextTurn();
         GameController.nextTurn();
     }

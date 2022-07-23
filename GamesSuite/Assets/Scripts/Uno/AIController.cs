@@ -114,10 +114,11 @@ public class AIController : MonoBehaviour
 
     private bool isWildCard(GameObject card) {
         Card cardInfo = card.GetComponent<Card>();
+        Sprite cardSprite = null;
+
+        int randNum = Random.Range(0, CardCreator.colors.Length);
         
         if (cardInfo.GetType() == typeof(WildCard)) {
-            
-            int randNum = Random.Range(0, CardCreator.colors.Length);
             cardInfo.setColor(CardCreator.colors[randNum]);
             
             if (((WildCard)cardInfo).getWildType() == "draw 4 wild") {
@@ -125,11 +126,29 @@ public class AIController : MonoBehaviour
                 for (int i = 0; i < 4; i++) {
                     hands[nextTurn].drawCard(handObjects[nextTurn]);
                 }
+
+                foreach (Sprite sprite in CardCreator.cardSprites) {
+                    if (sprite.name == $"{CardCreator.colors[randNum]} draw 4 card") {
+                        cardSprite = sprite;
+                        break;
+                    }
+                }
+
+                card.GetComponent<SpriteRenderer>().sprite = cardSprite;
                 GameController.nextTurn();
             }
         } else {
             return false;
         }
+
+        foreach (Sprite sprite in CardCreator.cardSprites) {
+            if (sprite.name == $"{CardCreator.colors[randNum]} wild card") {
+                cardSprite = sprite;
+                break;
+            }
+        }
+
+                card.GetComponent<SpriteRenderer>().sprite = cardSprite;
 
         return true;
     }
