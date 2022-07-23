@@ -61,8 +61,13 @@ public class GameController : MonoBehaviour
 
     IEnumerator dealInitialCards(List<GameObject> cardsInhand, GameObject hand) {
         yield return new WaitForSeconds(0.3f); // wait 0.3 seconds to allow deck to be shuffled before dealing cards
+        Sprite backCardSprite = Resources.Load<Sprite>("Sprites/Uno/UNO_Back");
         for (int i = 0; i < 7; i++) {
             GameObject card = Deck.getCardFromDeck();
+            if (hand == opponentHand1 || hand == opponentHand2 || hand == opponentHand3) {
+                card.GetComponent<SpriteRenderer>().sprite = backCardSprite;
+                card.transform.localScale = new Vector2(50, 50);
+            }
             card.transform.SetParent(hand.transform, false);
             Hand.applyCardPosition(card, cardsInhand, hand);
             cardsInhand.Add(card);
@@ -72,6 +77,9 @@ public class GameController : MonoBehaviour
     IEnumerator dealStartCard(GameObject playAreaDeck, Stack<GameObject> playAreaStack) {
         yield return new WaitForSeconds(0.3f);
         GameObject card = Deck.getCardFromDeck();
+        while (card.GetComponent<Card>().GetType() == typeof(WildCard)) {
+            card = Deck.getCardFromDeck();
+        }
         card.transform.SetParent(playAreaDeck.transform, false);
         card.transform.position = playAreaDeck.transform.position;
         playAreaStack.Push(card);

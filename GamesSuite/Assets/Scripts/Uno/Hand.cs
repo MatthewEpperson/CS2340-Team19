@@ -18,6 +18,11 @@ public class Hand : MonoBehaviour
 
     public void drawCard(GameObject hand) {
         GameObject card = Deck.getCardFromDeck();
+        Sprite backCardSprite = Resources.Load<Sprite>("Sprites/Uno/Uno_Back");
+        if (hand.name != "Player Hand") {
+            card.GetComponent<SpriteRenderer>().sprite = backCardSprite;
+            card.transform.localScale = new Vector2(50, 50);
+        }
         card.transform.SetParent(hand.transform, false);
         CardUI.applyCardPosition(card, cardsInHand, hand);
         hand.GetComponent<Hand>().cardsInHand.Add(card);
@@ -34,8 +39,14 @@ public class Hand : MonoBehaviour
                 return;
         }
 
-        if ((cardsInHand.Count - 1 <= 1) && GameController.currTurn == "Player") {
-            return;
+        if (cardsInHand.Count <= 1) {
+            if (cardsInHand.Count == 0) {
+                if (GameController.currTurn == "Player") {
+                    GameController.playerWin = true;
+                }
+            UIController uiController = GameObject.Find("UIController").GetComponent<UIController>();
+            uiController.toggleGameOverMenu();
+            }
         }
 
 
@@ -88,6 +99,7 @@ public class Hand : MonoBehaviour
 
         if (cardsInHand.Count <= 0) {
             if (GameController.currTurn == "Player") {
+                Debug.Log("PLAYER WON");
                 GameController.playerWin = true;
             }
             UIController uiController = GameObject.Find("UIController").GetComponent<UIController>();

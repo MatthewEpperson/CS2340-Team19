@@ -69,8 +69,18 @@ public class AIController : MonoBehaviour
             StartCoroutine(findAllPlayableCards());
             int randNum = Random.Range(0, playableCards.Count);
             if (CountdownController.currentTime <= CountdownController.aiTimer) {
-                StartCoroutine(CardUI.moveToPlayArea(playableCards[randNum], PlayAreaDeck.getPlayArea()));
-                hand.playCard(checkCardType(playableCards[randNum]), PlayAreaDeck.getPlayArea());
+                Sprite spriteCard = null;
+                GameObject card = playableCards[randNum];
+                foreach (Sprite sprite in CardCreator.cardSprites) {
+                    if (sprite.name == card.gameObject.name) {
+                        spriteCard = sprite;
+                        break;
+                    }
+                }
+                card.GetComponent<SpriteRenderer>().sprite = spriteCard;
+                card.transform.localScale = new Vector2(14, 14);
+                StartCoroutine(CardUI.moveToPlayArea(card, PlayAreaDeck.getPlayArea()));
+                hand.playCard(checkCardType(card), PlayAreaDeck.getPlayArea());
             }
         }
     }
