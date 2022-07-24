@@ -2457,22 +2457,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Enter any five letter word
+  m_text: '- Select a card from your hand matching the center card either in color
+    or number, or a wild card
 
 
-    - Letters entered that are in the correct
-    word and at the correct position will be highlighted green
+    - Wait until your hand is highlighted to place
+    your card
 
 
-    - Letters entered
-    that are in the correct word, but in the wrong position will be highlighted yellow
+    - If you do not have a card that matches, draw from the deck
 
 
     -
-    Keep guessing until you get the word right
+    Make your selection within 30 seconds
 
 
-    Good Luck!'
+    - Call Uno when you have only one
+    card!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 65ea2005317e30b48a77443e6158d373, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
